@@ -160,6 +160,43 @@ document.documentElement.classList.add('js');
     }
   }
 
+  // Carrusel satelital del hero (imágenes locales, orden aleatorio en cada carga)
+  var carHost = document.querySelector('.hero-carousel');
+  var carCap = document.querySelector('.hero-sat-cap');
+  var sats = (window.HERO_SATS || []).slice();
+  if (carHost && sats.length) {
+    for (var s = sats.length - 1; s > 0; s--) {
+      var r = Math.floor(Math.random() * (s + 1)), tmp = sats[s]; sats[s] = sats[r]; sats[r] = tmp;
+    }
+    var slides = sats.map(function (item, i) {
+      var slide = document.createElement('div');
+      slide.className = 'hero-slide';
+      var im = document.createElement('img');
+      im.src = item.src; im.alt = ''; im.decoding = 'async';
+      im.loading = i === 0 ? 'eager' : 'lazy';
+      if (i === 0) im.fetchPriority = 'high';
+      slide.appendChild(im); carHost.appendChild(slide);
+      return slide;
+    });
+    var cur = 0;
+    var showSat = function (n) {
+      slides.forEach(function (sl, k) { sl.classList.toggle('is-active', k === n); });
+      if (carCap) carCap.textContent = sats[n].place + ' · ' + sats[n].source;
+    };
+    // reinicia la animación Ken-Burns en cada cambio
+    var restartKen = function (n) {
+      var im = slides[n].querySelector('img');
+      im.style.animation = 'none'; void im.offsetWidth; im.style.animation = '';
+    };
+    showSat(0);
+    if (slides.length > 1 && !reduced) {
+      window.setInterval(function () {
+        cur = (cur + 1) % slides.length;
+        showSat(cur); restartKen(cur);
+      }, 7000);
+    }
+  }
+
   // Contadores animados en las cifras (.stat b) al entrar en pantalla
   function animateStat(b) {
     var raw = b.textContent;

@@ -36,8 +36,8 @@
 <main id="contenido">
   <header class="hero">
     <div class="hero-sat" aria-hidden="true">
-      <picture><source media="(min-width:1151px)" srcset="assets/hero-sat.jpg"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" fetchpriority="high"></picture>
-      <span class="hero-sat-cap">Sentinel-2, Copernicus/UE · Bosque de Białowieża</span>
+      <div class="hero-carousel"></div>
+      <span class="hero-sat-cap"></span>
     </div>
     <div class="hero-copy">
     <span class="eyebrow anim"><span class="pulse-dot"></span>Monitorización forestal <span class="type-word" data-words='["predictiva.","fiable.","en tiempo real.","sostenible.","automatizada.","inteligente."]'>predictiva.</span><span class="type-cursor" aria-hidden="true"></span></span>
@@ -181,6 +181,17 @@
   <div class="foot-bottom"><span>&copy; 2026 SilvIA Earth S.L. · Leganés, Madrid</span><span>Inteligencia para los bosques</span></div>
 </footer>
 
+<script>
+/* Imágenes del carrusel satelital del hero.
+   Añade aquí tus recortes de Copernicus (Sentinel-2) de parajes españoles.
+   place = pie de ubicación · source = fuente de datos. Orden aleatorio en cada carga. */
+window.HERO_SATS = [
+  { src: "assets/hero-sat.jpg", place: "Bosque de Białowieża", source: "Sentinel-2 · Copernicus" }
+  // ,{ src: "assets/donana.jpg",     place: "Doñana, Huelva",              source: "Sentinel-2 · Copernicus" }
+  // ,{ src: "assets/delta-ebro.jpg", place: "Delta del Ebro, Tarragona",   source: "Sentinel-2 · Copernicus" }
+  // ,{ src: "assets/daimiel.jpg",    place: "Tablas de Daimiel, Ciudad Real", source: "Sentinel-2 · Copernicus" }
+];
+</script>
 <script src="assets/js/silvia.js"></script>
 </body>
 </html>
