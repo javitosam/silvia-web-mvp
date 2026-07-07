@@ -66,14 +66,14 @@ document.documentElement.classList.add('js');
   if (langLink) {
     var isES = (root.getAttribute('lang') || 'es').slice(0, 2).toLowerCase() !== 'en';
     var otherHref = langLink.getAttribute('href') || '#';
-    var esData = { flag: '🇪🇸', name: 'Español', code: 'ES' };
-    var enData = { flag: '🇬🇧', name: 'English', code: 'EN' };
+    var esData = { name: 'Español', code: 'ES' };
+    var enData = { name: 'English', code: 'EN' };
     var cur = isES ? esData : enData;
 
     var opt = function (d, active, href, lang) {
       return '<a class="lang-opt' + (active ? ' active' : '') + '" role="menuitem" href="' + href + '"' +
         (active ? ' aria-current="true"' : ' hreflang="' + lang + '" lang="' + lang + '"') +
-        '><span class="flag">' + d.flag + '</span>' + d.name + '<span class="code">' + d.code + '</span></a>';
+        '><span class="code">' + d.code + '</span><span class="name">' + d.name + '</span></a>';
     };
     var pop = document.createElement('div');
     pop.className = 'lang-pop';
