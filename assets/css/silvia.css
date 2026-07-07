@@ -29,8 +29,11 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--green);outline-offs
 
 /* ---------- NAV ---------- */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
-  padding:16px 5vw;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(26,32,44,.07);transform:translateY(-100%);animation:navDrop .8s cubic-bezier(.2,.7,.2,1) .15s forwards}
+  padding:16px 5vw;background:linear-gradient(135deg,rgba(255,255,255,.62),rgba(255,255,255,.42));
+  backdrop-filter:blur(22px) saturate(185%);-webkit-backdrop-filter:blur(22px) saturate(185%);
+  border-bottom:1px solid rgba(255,255,255,.45);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 8px 30px -20px rgba(26,32,44,.35);
+  transform:translateY(-100%);animation:navDrop .8s cubic-bezier(.2,.7,.2,1) .15s forwards}
 @keyframes navDrop{to{transform:translateY(0)}}
 .logo{display:flex;align-items:center;gap:9px;text-decoration:none;cursor:pointer}
 .logo img{width:30px;height:30px;display:block}
@@ -145,7 +148,7 @@ section{padding:120px 5vw;position:relative}
 /* ---------- AUDIENCIAS ---------- */
 .aud-head{max-width:800px;margin-bottom:64px}
 .aud h2{font-size:var(--h2-lg);line-height:1.1}
-.aud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .card{border:1px solid var(--mist);border-top:2px solid var(--black);border-radius:var(--r-s);padding:34px 28px 30px;position:relative;background:var(--white);text-decoration:none;
   transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s;cursor:pointer;display:flex;flex-direction:column}
 .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px -26px rgba(26,32,44,.35);border-top-color:var(--green)}
@@ -416,7 +419,10 @@ p,.lede{text-wrap:pretty}
 
 /* Nav compacto al hacer scroll */
 nav{transition:padding .35s cubic-bezier(.2,.7,.2,1),background .35s,box-shadow .35s}
-.js nav.scrolled{padding-top:10px;padding-bottom:10px;background:rgba(255,255,255,.94);box-shadow:0 12px 36px -26px rgba(26,32,44,.3)}
+.js nav.scrolled{padding-top:10px;padding-bottom:10px;
+  background:linear-gradient(135deg,rgba(255,255,255,.82),rgba(255,255,255,.66));
+  border-bottom-color:rgba(26,32,44,.08);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 12px 34px -18px rgba(26,32,44,.4)}
 
 /* Botones: estado de pulsación y hover del fantasma */
 .btn:active{transform:translateY(0) scale(.98)}
@@ -501,3 +507,59 @@ footer{border-top:2px solid var(--green)}
   .feat-card:last-child:nth-child(odd){display:block}
   .feat-card:last-child:nth-child(odd) h3{margin-bottom:10px}
 }
+
+/* ============================================================
+   BARRA DE PROGRESO DE SCROLL (verde, fija arriba)
+   ============================================================ */
+#scrollbar{position:fixed;top:0;left:0;height:3px;width:0;z-index:200;
+  background:linear-gradient(90deg,var(--green),var(--accent));
+  border-radius:0 3px 3px 0;transition:width .12s linear;pointer-events:none}
+@media(prefers-reduced-motion:reduce){#scrollbar{display:none}}
+
+/* ============================================================
+   SELECTOR DE IDIOMA — POPUP COMPACTO
+   ============================================================ */
+.lang-pop{position:relative;display:inline-flex}
+.lang-toggle{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.5);
+  border:1px solid rgba(26,32,44,.12);box-shadow:0 2px 10px -6px rgba(26,32,44,.3);
+  backdrop-filter:blur(12px) saturate(160%);-webkit-backdrop-filter:blur(12px) saturate(160%);
+  border-radius:999px;padding:6px 11px;cursor:pointer;color:var(--grey);
+  font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.1em;line-height:1;
+  transition:color .2s,border-color .2s,background .2s}
+.lang-toggle:hover{color:var(--black);border-color:rgba(26,32,44,.24)}
+.lang-toggle svg{width:14px;height:14px;flex-shrink:0}
+.lang-toggle .chev{transition:transform .25s}
+.lang-pop.open .lang-toggle .chev{transform:rotate(180deg)}
+.lang-menu{position:absolute;top:calc(100% + 10px);right:0;min-width:150px;
+  background:rgba(255,255,255,.86);backdrop-filter:blur(22px) saturate(185%);-webkit-backdrop-filter:blur(22px) saturate(185%);
+  border:1px solid rgba(26,32,44,.10);border-radius:12px;
+  box-shadow:0 18px 40px -22px rgba(26,32,44,.5),inset 0 1px 0 rgba(255,255,255,.7);
+  padding:6px;display:flex;flex-direction:column;gap:2px;
+  opacity:0;visibility:hidden;transform:translateY(-6px) scale(.98);transform-origin:top right;
+  transition:opacity .2s,transform .2s,visibility .2s;z-index:120}
+.lang-pop.open .lang-menu{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.lang-opt{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:8px;
+  text-decoration:none;color:var(--grey);font-size:.86rem;font-weight:500;transition:background .18s,color .18s;white-space:nowrap}
+.lang-opt::after{display:none!important}
+.lang-opt:hover{background:rgba(56,161,105,.10);color:var(--black)}
+.lang-opt .flag{font-family:var(--font-mono);font-size:.66rem;font-weight:700;letter-spacing:.08em;color:var(--steel);width:20px}
+.lang-opt.active{color:var(--black);font-weight:600}
+.lang-opt.active .flag{color:var(--green)}
+.lang-opt.active::before{content:'✓';margin-left:auto;color:var(--green);font-family:var(--font-mono);font-size:.8rem}
+@media(max-width:960px){
+  .lang-menu{right:auto;left:0;transform-origin:top left}
+}
+
+/* ============================================================
+   COLABORACIONES / APOYO INSTITUCIONAL (ESA · UC3M)
+   ============================================================ */
+.trust{padding:52px 5vw;border-top:1px solid var(--mist);border-bottom:1px solid var(--mist);background:#fbfdfc}
+.trust-inner{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px}
+.trust-kicker{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);font-weight:600}
+.trust-logos{display:flex;flex-wrap:wrap;gap:26px 64px;align-items:flex-start;justify-content:center}
+.trust-badge{display:flex;flex-direction:column;align-items:center;gap:12px;opacity:.9;transition:opacity .25s,transform .25s}
+.trust-badge:hover{opacity:1;transform:translateY(-2px)}
+.trust-badge img{width:auto;display:block}
+.trust-badge .esa-logo{height:36px}
+.trust-badge .uc-logo{height:58px}
+.trust-badge .trust-cap{font-size:.76rem;color:var(--steel);letter-spacing:.01em;text-align:center}

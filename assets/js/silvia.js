@@ -11,11 +11,70 @@ document.documentElement.classList.add('js');
     });
   }
 
-  // Nav compacto al hacer scroll
-  if (nav) {
-    var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 8); };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+  // Barra de progreso de scroll (verde, fija arriba)
+  var scrollbar = document.getElementById('scrollbar');
+  if (!scrollbar && !reduced) {
+    scrollbar = document.createElement('div');
+    scrollbar.id = 'scrollbar';
+    scrollbar.setAttribute('aria-hidden', 'true');
+    document.body.insertBefore(scrollbar, document.body.firstChild);
+  }
+
+  // Nav compacto al hacer scroll + progreso
+  var navTicking = false;
+  var onScroll = function () {
+    if (navTicking) return;
+    navTicking = true;
+    requestAnimationFrame(function () {
+      if (nav) nav.classList.toggle('scrolled', window.scrollY > 8);
+      if (scrollbar) {
+        var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+        scrollbar.style.width = (max > 0 ? (h.scrollTop / max * 100) : 0) + '%';
+      }
+      navTicking = false;
+    });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Selector de idioma como popup compacto (a partir del enlace .lang-link)
+  var langLink = document.querySelector('.lang-link');
+  if (langLink) {
+    var curLang = (document.documentElement.getAttribute('lang') || 'es').slice(0, 2).toLowerCase();
+    var isES = curLang !== 'en';
+    var otherHref = langLink.getAttribute('href') || '#';
+    var LABELS = { es: 'Español', en: 'English' };
+    var curCode = isES ? 'ES' : 'EN';
+    var otherLang = isES ? 'en' : 'es';
+
+    var pop = document.createElement('div');
+    pop.className = 'lang-pop';
+    pop.innerHTML =
+      '<button class="lang-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Idioma / Language">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>' +
+        '<span>' + curCode + '</span>' +
+        '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>' +
+      '</button>' +
+      '<div class="lang-menu" role="menu">' +
+        '<a class="lang-opt' + (isES ? ' active' : '') + '" role="menuitem" href="' + (isES ? '#' : otherHref) + '"' + (isES ? ' aria-current="true"' : ' hreflang="es" lang="es"') + '><span class="flag">ES</span>' + LABELS.es + '</a>' +
+        '<a class="lang-opt' + (!isES ? ' active' : '') + '" role="menuitem" href="' + (!isES ? '#' : otherHref) + '"' + (!isES ? ' aria-current="true"' : ' hreflang="en" lang="en"') + '><span class="flag">EN</span>' + LABELS.en + '</a>' +
+      '</div>';
+
+    var li = langLink.closest('li');
+    if (li) { li.textContent = ''; li.appendChild(pop); }
+    else { langLink.replaceWith(pop); }
+
+    var toggle = pop.querySelector('.lang-toggle');
+    var closePop = function () { pop.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); };
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = pop.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) { if (!pop.contains(e.target)) closePop(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePop(); });
+    pop.querySelector('.lang-opt.active').addEventListener('click', function (e) { e.preventDefault(); closePop(); });
+    void otherLang;
   }
 
   // Enlace activo según la página actual (respaldo si falta aria-current)
