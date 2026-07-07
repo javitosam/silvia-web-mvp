@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SilvIA · Inteligencia para los bosques</title>
+<meta name="description" content="Plataforma de monitorización forestal con IA: predicción de riesgo de incendio y detección de perturbaciones por satélite, para administraciones, aseguradoras y empresas.">
+<link rel="alternate" hreflang="en" href="index-en.html">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;600&family=IBM+Plex+Mono:wght@400;600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/silvia.css">
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<nav id="nav">
+  <a class="logo" href="index.html" aria-label="SilvIA, inicio">
+    <img src="assets/logo-icon.png" alt="">
+    <span class="logo-word">Silv<b>IA</b></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="administraciones.html">Administraciones</a></li>
+    <li><a href="aseguradoras.html">Aseguradoras</a></li>
+    <li><a href="empresas.html">Empresas y particulares</a></li>
+    <li><a href="utilities.html">Utilities</a></li>
+    <li><a href="plataforma.html">Plataforma</a></li>
+    <li><a href="quienes-somos.html">Quiénes somos</a></li>
+    <li><a class="nav-cta" href="contacto.html">Contacto</a></li>
+    <li><a class="lang-link" href="index-en.html" hreflang="en" lang="en" aria-label="Switch to English">EN</a></li>
+  </ul>
+  <button class="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+
+<main id="contenido">
+  <header class="hero">
+    <div class="hero-sat" aria-hidden="true">
+      <picture><source media="(min-width:1151px)" srcset="assets/hero-sat.jpg"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" fetchpriority="high"></picture>
+      <span class="hero-sat-cap">Sentinel-2, Copernicus/UE · Bosque de Białowieża</span>
+    </div>
+    <div class="hero-copy">
+    <span class="eyebrow anim"><span class="pulse-dot"></span>Monitorización forestal <span class="type-word" data-words='["predictiva.","fiable.","en tiempo real.","sostenible.","automatizada.","inteligente."]'>predictiva.</span><span class="type-cursor" aria-hidden="true"></span></span>
+    <h1>
+      <span class="line"><span>Entiende el bosque</span></span>
+      <span class="line"><span>antes de que el daño</span></span>
+      <span class="line"><span>sea <em>irreversible.</em></span></span>
+    </h1>
+    <p>SilvIA anticipa el riesgo de incendio y detecta perturbaciones forestales a partir de datos satelitales y ambientales. Señales claras, con su confianza explícita, a tiempo de actuar.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="contacto.html">Solicitar una demo</a>
+      <a class="btn btn-ghost" href="#motor-riesgo">Ver el motor de riesgo</a>
+    </div>
+    </div>
+
+  </header>
+
+  <section class="core" id="motor-riesgo">
+    <div class="wrap">
+      <span class="section-label reveal">El núcleo de SilvIA</span>
+      <h2 class="reveal d1">El riesgo de incendio se lee en los datos días antes de la primera llama.</h2>
+      <p class="lede reveal d2">El motor de riesgo cruza la sequedad del combustible vegetal, la topografía y la meteorología para señalar dónde es más probable la ignición. Y cuando hay un foco térmico, el satélite lo confirma en minutos, de día, de noche o con nubes. Cada señal llega con su nivel de confianza explícito. La detección tradicional tarda de media 48 horas. Los bosques no pueden esperar; SilvIA tampoco.</p>
+      <div class="core-stats reveal d3">
+        <div class="stat"><b>AUC ≥ 0.75</b><span>rendimiento del modelo de predicción de incendios</span></div>
+        <div class="stat"><b>&lt; 60 min</b><span>alertas de anomalía térmica casi en tiempo real</span></div>
+        <div class="stat"><b>375 m</b><span>resolución de focos VIIRS, también nocturna</span></div>
+        <div class="stat"><b>24/7</b><span>radar SAR: atraviesa nubes y humo</span></div>
+      </div>
+      <div class="core-fig reveal d4" aria-hidden="true">
+        <svg viewBox="0 0 860 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="riskFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffbd59" stop-opacity=".22"/>
+              <stop offset="1" stop-color="#ffbd59" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <line x1="40" y1="180" x2="820" y2="180" stroke="rgba(255,255,255,.25)"/>
+          <line x1="40" y1="84" x2="820" y2="84" stroke="rgba(255,255,255,.35)" stroke-dasharray="5 6"/>
+          <text x="44" y="74" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="1.5" fill="rgba(255,255,255,.55)">UMBRAL DE ALERTA</text>
+          <path d="M40 168C120 165 180 160 262 150S400 128 484 108 620 78 706 56 790 40 820 36L820 180L40 180Z" fill="url(#riskFill)"/>
+          <path class="spark-line" d="M40 168C120 165 180 160 262 150S400 128 484 108 620 78 706 56 790 40 820 36" stroke="#ffbd59" stroke-width="2.5"/>
+          <line x1="650" y1="84" x2="650" y2="180" stroke="rgba(255,189,89,.4)" stroke-dasharray="3 5"/>
+          <circle class="ring" cx="650" cy="84" r="7" stroke="#ffbd59" stroke-width="1.5" fill="none"/>
+          <circle cx="650" cy="84" r="4.5" fill="#ffbd59"/>
+          <text x="662" y="106" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="1.5" font-weight="600" fill="#ffbd59">ALERTA EMITIDA</text>
+          <text x="40" y="207" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="1.5" fill="rgba(255,255,255,.45)">D-7</text>
+          <text x="262" y="207" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="1.5" fill="rgba(255,255,255,.45)">D-5</text>
+          <text x="484" y="207" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="1.5" fill="rgba(255,255,255,.45)">D-3</text>
+          <text x="706" y="207" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="1.5" fill="rgba(255,255,255,.45)">D-1</text>
+          <text x="820" y="207" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="1.5" fill="rgba(255,255,255,.65)">HOY</text>
+        </svg>
+        <span class="fig-cap">Gráfico ilustrativo: evolución típica del índice de ignición ante un episodio de riesgo</span>
+      </div>
+      <div class="core-links reveal d4">
+        <a href="administraciones.html">La solución para administraciones <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="plataforma.html">Metodología del motor de riesgo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <p class="src-strip reveal d4"><b>Fuentes de datos</b><span>Sentinel-1</span><span>Sentinel-2</span><span>Landsat</span><span>VIIRS</span><span>GEDI</span><span>ICESat-2</span><span>Copernicus</span><span>USGS</span></p>
+    </div>
+  </section>
+
+  <section class="pillars">
+    <div class="pillars-head">
+      <h2 class="reveal d1">Una plataforma que convierte datos complejos en <span class="hl">decisiones claras</span>: qué está pasando, por qué importa y cuándo actuar.</h2>
+    </div>
+    <div class="pillars-grid">
+      <a class="pillar reveal d1" href="plataforma.html#earth"><span class="p-num">01</span><h3>SilvIA Earth</h3><p>Mapas interactivos y alertas continuas a partir de fusión de datos multisensor: óptico, radar, LiDAR y térmico.</p></a>
+      <a class="pillar reveal d2" href="plataforma.html#analysis"><span class="p-num">02</span><h3>SilvIA Analysis</h3><p>Analítica profunda bajo demanda: biomasa a 30 m, series temporales de décadas y detección de anomalías.</p></a>
+      <a class="pillar reveal d3" href="plataforma.html#assistant"><span class="p-num">03</span><h3>SilvIA AI Assistant</h3><p>Traduce métricas técnicas a lenguaje claro y recomendaciones accionables, siempre con su nivel de confianza.</p></a>
+    </div>
+    <div class="pillars-more reveal d4"><a href="plataforma.html">Conocer la plataforma y la metodología <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </section>
+
+  <section class="aud" id="para-quien">
+    <div class="aud-head">
+      <h2 class="reveal d1">Inteligencia forestal para cada tipo de decisión.</h2>
+    </div>
+    <div class="aud-grid">
+      <a class="card reveal d1" href="administraciones.html">
+        <h3>Administraciones</h3>
+        <p>Agencias forestales, prevención de incendios y autoridades ambientales: visión operativa del territorio para anticipar y priorizar la respuesta.</p>
+        <span class="go">Ver solución <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card reveal d2" href="aseguradoras.html">
+        <h3>Aseguradoras</h3>
+        <p>Señales objetivas de riesgo para suscribir carteras, ajustar la exposición y liquidar siniestros con datos, no con estimaciones.</p>
+        <span class="go">Ver solución <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card reveal d3" href="empresas.html">
+        <h3>Empresas y particulares</h3>
+        <p>Cumplimiento EUDR, inventario de carbono y seguimiento continuo de tus parcelas, con alertas cuando algo requiere tu atención.</p>
+        <span class="go">Ver solución <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card reveal d4" href="utilities.html">
+        <h3>Utilities y energía</h3>
+        <p>Gestión de la vegetación en derechos de vía y cortes preventivos más precisos: menos igniciones, menos clientes sin servicio.</p>
+        <span class="go">Ver solución <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+    <div class="pillars-more reveal d4"><a href="quienes-somos.html">Conoce al equipo detrás de SilvIA <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </section>
+
+  <section class="cta">
+    <h2 class="reveal">Actúa antes de que empiece el incendio.</h2>
+    <p class="reveal d1">Cuéntanos qué territorio gestionas y te enseñamos SilvIA sobre tus propios bosques.</p>
+    <div class="reveal d2"><a class="btn btn-white" href="contacto.html">Hablar con el equipo</a></div>
+  </section>
+</main>
+
+<footer id="contacto">
+  <div class="foot-top">
+    <div>
+      <img class="foot-logo" src="assets/logo-full-darkbg.png" alt="SilvIA">
+      <p class="foot-tagline">Plataforma de monitorización forestal con predicción de riesgo de incendio.</p>
+    </div>
+    <div class="foot-links">
+      <div>
+        <h4>Soluciones</h4>
+        <a href="administraciones.html">Administraciones</a>
+        <a href="aseguradoras.html">Aseguradoras</a>
+        <a href="empresas.html">Empresas y particulares</a>
+        <a href="utilities.html">Utilities y energía</a>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <a href="plataforma.html">Plataforma</a>
+        <a href="quienes-somos.html">Quiénes somos</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="mailto:info@silviaearth.com">info@silviaearth.com</a>
+        <a href="https://silviaearth.com">silviaearth.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom"><span>&copy; 2026 SilvIA S.L. · Leganés, Madrid</span><span>Inteligencia para los bosques</span></div>
+</footer>
+
+<script src="assets/js/silvia.js"></script>
+</body>
+</html>

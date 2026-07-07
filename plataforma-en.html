@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Platform &amp; methodology · SilvIA</title>
+<meta name="description" content="How SilvIA fuses optical, radar, LiDAR and thermal data across its three pillars (Earth, Analysis and AI Assistant): methodology, validation and available plans.">
+<link rel="alternate" hreflang="es" href="plataforma.html">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;600&family=IBM+Plex+Mono:wght@400;600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/silvia.css">
+</head>
+<body>
+<a class="skip-link" href="#contenido">Skip to content</a>
+
+<nav id="nav">
+  <a class="logo" href="index-en.html" aria-label="SilvIA, home">
+    <img src="assets/logo-icon.png" alt="">
+    <span class="logo-word">Silv<b>IA</b></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="administraciones-en.html">Public sector</a></li>
+    <li><a href="aseguradoras-en.html">Insurers</a></li>
+    <li><a href="empresas-en.html">Companies &amp; landowners</a></li>
+    <li><a href="utilities-en.html">Utilities</a></li>
+    <li><a href="plataforma-en.html" aria-current="page">Platform</a></li>
+    <li><a href="quienes-somos-en.html">About us</a></li>
+    <li><a class="nav-cta" href="contacto-en.html">Contact</a></li>
+    <li><a class="lang-link" href="plataforma.html" hreflang="es" lang="es" aria-label="Cambiar a español">ES</a></li>
+  </ul>
+  <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+
+<main id="contenido">
+  <header class="sub-hero dark">
+    <a class="sub-back" href="index-en.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Back to home</a>
+    <span class="eyebrow anim">Platform &amp; methodology</span>
+    <h1>From satellite to decision.</h1>
+    <p>What sets SilvIA apart is multi-sensor fusion: optical, radar, thermal and LiDAR working together, so that neither cloud cover nor nightfall leaves a gap in your view of the land.</p>
+    <div class="stats">
+      <div class="stat"><b>&lt; 60 min</b><span>near-real-time alerts</span></div>
+      <div class="stat"><b>IoU ≥ 0.70</b><span>forest-cover classification</span></div>
+      <div class="stat"><b>AUC ≥ 0.75</b><span>wildfire risk prediction</span></div>
+      <div class="stat"><b>&gt; 99 %</b><span>system availability (SLA)</span></div>
+    </div>
+  </header>
+
+  <section class="feat">
+    <div class="feat-head">
+      <h2 class="reveal d1">One platform, three ways of working with the forest.</h2>
+      <p class="reveal d2">Continuous surveillance, deep on-demand analysis, and an interpretation layer that translates both into plain language.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card reveal d1" id="earth">
+        <h3>SilvIA Earth</h3>
+        <p>Interactive maps and continuous alerts across whatever territory you choose to monitor. Sentinel-2 and Landsat optical imagery delivers close to 97% accuracy in cover classification; Sentinel-1 radar cuts through clouds and works at night, enabling 24/7 surveillance; and VIIRS thermal data at 375 m resolution picks up incipient hotspots. Monthly classification into Forest, Non-forest and Degraded forest, supported by the NDVI and NBR indices.</p>
+      </div>
+      <div class="feat-card reveal d2" id="analysis">
+        <h3>SilvIA Analysis</h3>
+        <p>On-demand analysis over the areas of interest you define. Biomass estimation at 30 m resolution by combining spaceborne LiDAR (GEDI, ICESat-2) with Sentinel and Landsat; multi-decade time series to establish solid baselines; and anomaly detection alongside forest degradation monitoring. Export to GIS formats and CSV, plus automated reports that slot into your own workflow.</p>
+      </div>
+      <div class="feat-card reveal d3" id="assistant">
+        <h3>SilvIA AI Assistant</h3>
+        <p>Translates every technical detection into plain language, always paired with an explicit confidence level (for example, "85% confidence in the species identification") and actionable recommendations. Never a blind alert: you will know what was detected, how certain we are, and what to do next.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="feat tint">
+    <div class="feat-head">
+      <span class="section-label reveal">Methodology</span>
+      <h2 class="reveal d1">From open data to a report with severity and confidence.</h2>
+      <p class="reveal d2">From ingestion to delivery, with confidence made explicit at every step.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal d1">
+        <h3>Ingestion</h3>
+        <p>Open data from Copernicus and USGS EarthExplorer, with optional sub-metre imagery from PlanetLabs where the detail demands it.</p>
+      </div>
+      <div class="step reveal d2">
+        <h3>Multi-sensor fusion</h3>
+        <p>Optical, radar, LiDAR and thermal data combined into a single, continuous observation record.</p>
+      </div>
+      <div class="step reveal d3">
+        <h3>Models</h3>
+        <p>Cover classification, change detection with LandTrendr and BFAST, a wildfire risk scoring engine, and trend forecasting.</p>
+      </div>
+      <div class="step reveal d4">
+        <h3>Interpretation</h3>
+        <p>Every result is delivered with its severity and confidence level made explicit, never as an isolated figure without context.</p>
+      </div>
+      <div class="step reveal d1">
+        <h3>Delivery</h3>
+        <p>Web GIS viewer, API, export to GeoTIFF and CSV, and automated reports ready to share with your team.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="feat">
+    <div class="feat-head">
+      <h2 class="reveal d1">What changes with SilvIA.</h2>
+      <p class="reveal d2">The difference, point by point.</p>
+    </div>
+    <div class="table-wrap">
+      <table class="compare">
+        <thead>
+          <tr><th></th><th>Traditional monitoring</th><th>SilvIA</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Works without field inspection</td><td class="c-no">✕</td><td class="c-yes">✓</td></tr>
+          <tr><td>Near-real-time monitoring</td><td class="c-no">✕</td><td class="c-yes">✓</td></tr>
+          <tr><td>Predictions with explicit confidence</td><td class="c-no">✕</td><td class="c-yes">✓</td></tr>
+          <tr><td>Fast-turnaround analysis</td><td class="c-no">✕</td><td class="c-yes">✓</td></tr>
+          <tr><td>Contained cost</td><td class="c-no">✕</td><td class="c-yes">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="feat tint">
+    <div class="feat-head">
+      <h2 class="reveal d1">What we do, and what we don't.</h2>
+      <p class="reveal d2">Signals for better decisions. Not absolute certainties.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card reveal d1">
+        <h3>What we do</h3>
+        <ul class="checks">
+          <li>Always communicate the level of uncertainty alongside every detection.</li>
+          <li>Provide traceable evidence: which sensor, which date, which model.</li>
+          <li>Validate against ground truth and independent reference datasets.</li>
+          <li>Feed insights from real pilots back into the continuous improvement of our models.</li>
+        </ul>
+      </div>
+      <div class="feat-card reveal d2">
+        <h3>What we don't do</h3>
+        <ul class="limits">
+          <li>We don't promise perfect detection: every model carries a margin of error.</li>
+          <li>We don't hide uncertainty behind a single number or a traffic light.</li>
+          <li>We don't replace field verification or official alert systems.</li>
+          <li>We don't make the decision for you: decision support, not decision authority.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="feat">
+    <div class="feat-head">
+      <span class="section-label reveal">Plans</span>
+      <h2 class="reveal d1">The same platform, at different depths.</h2>
+      <p class="reveal d2">No public price lists: each plan is tailored to your territory and to how you need to use the data.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier reveal d1">
+        <span class="t-name">Basic</span>
+        <h3>For the general public</h3>
+        <p class="t-for">Anyone interested in the condition of a specific territory.</p>
+        <ul>
+          <li>Essential forest-cover maps</li>
+          <li>Alerts for your locations of interest</li>
+          <li>Access to the web GIS viewer</li>
+        </ul>
+        <a class="btn btn-ghost" href="contacto-en.html">Talk to the team</a>
+      </div>
+      <div class="tier reveal d2">
+        <span class="t-name">Standard</span>
+        <h3>For students and researchers</h3>
+        <p class="t-for">Academic and scientific work over your own areas of interest.</p>
+        <ul>
+          <li>Analysis of user-defined areas of interest (AOI)</li>
+          <li>Access to multi-decade historical series</li>
+          <li>Export to GIS formats and CSV</li>
+        </ul>
+        <a class="btn btn-ghost" href="contacto-en.html">Talk to the team</a>
+      </div>
+      <div class="tier rec reveal d3">
+        <span class="t-name">Premium</span>
+        <h3>For agencies, insurers and corporations</h3>
+        <p class="t-for">Operations that demand both analytical depth and speed of response.</p>
+        <ul>
+          <li>Deep on-demand analysis across all areas of interest</li>
+          <li>Near-real-time data at intervals down to 30 minutes</li>
+          <li>Risk scoring engine and trend forecasting</li>
+          <li>Extended SilvIA AI Assistant</li>
+          <li>Emergency API for integration with your own systems</li>
+        </ul>
+        <a class="btn btn-primary" href="contacto-en.html">Request a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="reveal">Act before the damage is irreversible.</h2>
+    <p class="reveal d1">Tell us about the land you manage and we'll show you SilvIA working on your own forests.</p>
+    <div class="reveal d2"><a class="btn btn-white" href="contacto-en.html">Talk to the team</a></div>
+  </section>
+</main>
+
+<footer id="contacto">
+  <div class="foot-top">
+    <div>
+      <img class="foot-logo" src="assets/logo-full-darkbg.png" alt="SilvIA">
+      <p class="foot-tagline">Forest-monitoring platform with predictive wildfire risk.</p>
+    </div>
+    <div class="foot-links">
+      <div>
+        <h4>Solutions</h4>
+        <a href="administraciones-en.html">Public sector</a>
+        <a href="aseguradoras-en.html">Insurers</a>
+        <a href="empresas-en.html">Companies &amp; landowners</a>
+        <a href="utilities-en.html">Utilities &amp; energy</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="plataforma-en.html">Platform</a>
+        <a href="quienes-somos-en.html">About us</a>
+        <a href="contacto-en.html">Contact</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:info@silviaearth.com">info@silviaearth.com</a>
+        <a href="https://silviaearth.com">silviaearth.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom"><span>&copy; 2026 SilvIA S.L. · Leganés, Madrid</span><span>Intelligence for forests</span></div>
+</footer>
+
+<script src="assets/js/silvia.js"></script>
+</body>
+</html>
