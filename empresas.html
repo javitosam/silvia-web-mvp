@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;600&family=IBM+Plex+Mono:wght@400;600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script>(function(){try{var t=localStorage.getItem("theme");if(t!=="dark"&&t!=="light"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <link rel="stylesheet" href="assets/css/silvia.css">
 </head>
 <body>
@@ -17,14 +18,13 @@
 
 <nav id="nav">
   <a class="logo" href="index.html" aria-label="SilvIA, inicio">
-    <img src="assets/logo-icon.png" alt="">
-    <span class="logo-word">Silv<b>IA</b></span>
+    <img class="logo-mark logo-light" src="assets/logo-nav-light.png" alt="SilvIA">
+    <img class="logo-mark logo-dark" src="assets/logo-nav-dark.png" alt="SilvIA">
   </a>
   <ul class="nav-links">
     <li><a href="administraciones.html">Administraciones</a></li>
     <li><a href="aseguradoras.html">Aseguradoras</a></li>
     <li><a href="empresas.html" aria-current="page">Empresas y particulares</a></li>
-    <li><a href="utilities.html">Utilities</a></li>
     <li><a href="plataforma.html">Plataforma</a></li>
     <li><a href="quienes-somos.html">Quiénes somos</a></li>
     <li><a class="nav-cta" href="contacto.html">Contacto</a></li>
@@ -117,7 +117,6 @@
         <a href="administraciones.html">Administraciones</a>
         <a href="aseguradoras.html">Aseguradoras</a>
         <a href="empresas.html">Empresas y particulares</a>
-        <a href="utilities.html">Utilities y energía</a>
       </div>
       <div>
         <h4>Empresa</h4>

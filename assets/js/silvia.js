@@ -11,11 +11,106 @@ document.documentElement.classList.add('js');
     });
   }
 
-  // Nav compacto al hacer scroll
+  // Barra de progreso de scroll (verde, fija arriba)
+  var scrollbar = document.getElementById('scrollbar');
+  if (!scrollbar && !reduced) {
+    scrollbar = document.createElement('div');
+    scrollbar.id = 'scrollbar';
+    scrollbar.setAttribute('aria-hidden', 'true');
+    document.body.insertBefore(scrollbar, document.body.firstChild);
+  }
+
+  // Nav compacto al hacer scroll + progreso
+  var navTicking = false;
+  var onScroll = function () {
+    if (navTicking) return;
+    navTicking = true;
+    requestAnimationFrame(function () {
+      if (nav) nav.classList.toggle('scrolled', window.scrollY > 8);
+      if (scrollbar) {
+        var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+        scrollbar.style.width = (max > 0 ? (h.scrollTop / max * 100) : 0) + '%';
+      }
+      navTicking = false;
+    });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Controles de la barra: tema (claro/oscuro) + selector de idioma
+  var root = document.documentElement;
+  var navRight = document.createElement('div');
+  navRight.className = 'nav-right';
+
+  // --- Botón de tema ---
+  var themeBtn = document.createElement('button');
+  themeBtn.className = 'theme-toggle';
+  themeBtn.type = 'button';
+  themeBtn.setAttribute('aria-label', 'Cambiar tema claro/oscuro');
+  themeBtn.innerHTML =
+    '<svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>' +
+    '<svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.8 6.8 0 0 0 9.8 9.8Z"/></svg>';
+  var applyTheme = function (t) {
+    root.setAttribute('data-theme', t);
+    themeBtn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
+    try { localStorage.setItem('theme', t); } catch (e) {}
+  };
+  var curTheme = root.getAttribute('data-theme') || 'light';
+  themeBtn.setAttribute('aria-pressed', curTheme === 'dark' ? 'true' : 'false');
+  themeBtn.addEventListener('click', function () {
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  // --- Selector de idioma (popup) a partir del enlace .lang-link ---
+  var langLink = document.querySelector('.lang-link');
+  if (langLink) {
+    var isES = (root.getAttribute('lang') || 'es').slice(0, 2).toLowerCase() !== 'en';
+    var otherHref = langLink.getAttribute('href') || '#';
+    var esData = { flag: '🇪🇸', name: 'Español', code: 'ES' };
+    var enData = { flag: '🇬🇧', name: 'English', code: 'EN' };
+    var cur = isES ? esData : enData;
+
+    var opt = function (d, active, href, lang) {
+      return '<a class="lang-opt' + (active ? ' active' : '') + '" role="menuitem" href="' + href + '"' +
+        (active ? ' aria-current="true"' : ' hreflang="' + lang + '" lang="' + lang + '"') +
+        '><span class="flag">' + d.flag + '</span>' + d.name + '<span class="code">' + d.code + '</span></a>';
+    };
+    var pop = document.createElement('div');
+    pop.className = 'lang-pop';
+    pop.innerHTML =
+      '<button class="lang-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Idioma / Language">' +
+        '<svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>' +
+        '<span>' + cur.code + '</span>' +
+        '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>' +
+      '</button>' +
+      '<div class="lang-menu" role="menu">' +
+        '<span class="lang-head">Idioma · Language</span>' +
+        opt(esData, isES, isES ? '#' : otherHref, 'es') +
+        opt(enData, !isES, !isES ? '#' : otherHref, 'en') +
+      '</div>';
+
+    var toggle = pop.querySelector('.lang-toggle');
+    var closePop = function () { pop.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); };
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = pop.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) { if (!pop.contains(e.target)) closePop(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePop(); });
+    pop.querySelector('.lang-opt.active').addEventListener('click', function (e) { e.preventDefault(); closePop(); });
+
+    var li = langLink.closest('li');
+    if (li) { li.remove(); }
+    navRight.appendChild(themeBtn);
+    navRight.appendChild(pop);
+  } else {
+    navRight.appendChild(themeBtn);
+  }
+
   if (nav) {
-    var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 8); };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    var burgerEl = nav.querySelector('.burger');
+    nav.insertBefore(navRight, burgerEl || null);
   }
 
   // Enlace activo según la página actual (respaldo si falta aria-current)
