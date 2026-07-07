@@ -622,7 +622,7 @@ footer{border-top:2px solid var(--green)}
   linear-gradient(180deg,rgba(13,17,23,.85) 0%,rgba(13,17,23,0) 15%),
   linear-gradient(0deg,var(--page-bg) 0%,rgba(13,17,23,0) 16%),
   linear-gradient(90deg,var(--page-bg) 0%,var(--page-bg) 10%,rgba(13,17,23,.97) 30%,rgba(13,17,23,.82) 48%,rgba(13,17,23,.45) 66%,rgba(13,17,23,.12) 84%,rgba(13,17,23,0) 100%)}
-[data-theme="dark"] .btn-white{background:var(--green);color:#08130d}
+/* .btn-white siempre va sobre la sección verde del CTA: se mantiene claro en ambos temas */
 [data-theme="dark"] footer{background:#0a0e13;border-top-color:var(--green)}
 [data-theme="dark"] .trust-badge{filter:brightness(0) invert(1) opacity(.85)}
 [data-theme="dark"] .trust-badge:hover{filter:brightness(0) invert(1) opacity(1)}
