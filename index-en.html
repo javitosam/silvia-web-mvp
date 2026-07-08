@@ -36,8 +36,8 @@
 <main id="contenido">
   <header class="hero">
     <div class="hero-sat" aria-hidden="true">
-      <picture><source media="(min-width:1151px)" srcset="assets/hero-sat.jpg"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" fetchpriority="high"></picture>
-      <span class="hero-sat-cap">Sentinel-2, Copernicus/EU · Białowieża Forest</span>
+      <div class="hero-carousel"></div>
+      <span class="hero-sat-cap"></span>
     </div>
     <div class="hero-copy">
     <span class="eyebrow anim"><span class="pulse-dot"></span><span class="type-word" data-words='["Predictive","Reliable","Real-time","Sustainable","Automated","Intelligent"]'>Predictive</span><span class="type-cursor" aria-hidden="true"></span> forest monitoring.</span>
@@ -178,9 +178,23 @@
       </div>
     </div>
   </div>
-  <div class="foot-bottom"><span>&copy; 2026 SilvIA S.L. · Leganés, Madrid</span><span>Intelligence for forests</span></div>
+  <div class="foot-bottom"><span>&copy; 2026 SilvIA Earth S.L. · Leganés, Madrid</span><span>Intelligence for forests</span></div>
 </footer>
 
+<script>
+/* Satellite hero carousel images. Add your Copernicus (Sentinel-2) crops of
+   Spanish natural areas here. place = location caption · source = data source.
+   Shuffled on every page load. */
+window.HERO_SATS = [
+  { src: "assets/donana.jpg",        place: "Doñana, Huelva",            source: "Sentinel-2 · Copernicus" },
+  { src: "assets/cazorla.jpg",       place: "Sierra de Cazorla, Jaén",   source: "Sentinel-2 · Copernicus" },
+  { src: "assets/monfrague.jpg",     place: "Monfragüe, Cáceres",        source: "Sentinel-2 · Copernicus" },
+  { src: "assets/gomera.jpg",        place: "La Gomera, Canary Islands", source: "Sentinel-2 · Copernicus" },
+  { src: "assets/sierra-nevada.jpg", place: "Sierra Nevada, Granada",    source: "Sentinel-2 · Copernicus" },
+  { src: "assets/mardeplasticoalmeria.jpg", place: "Almería greenhouses", source: "Sentinel-2 · Copernicus" },
+  { src: "assets/aiguestortes.jpg",  place: "Aigüestortes, Lleida",       source: "Sentinel-2 · Copernicus" }
+];
+</script>
 <script src="assets/js/silvia.js"></script>
 </body>
 </html>

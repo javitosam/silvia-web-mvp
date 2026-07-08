@@ -89,8 +89,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 /* ---------- HERO (portada) ---------- */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:150px 5vw 90px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background-image:var(--contour-dark);background-size:130% auto;background-repeat:no-repeat;background-position:center;pointer-events:none;
-  -webkit-mask-image:linear-gradient(90deg,#000 36%,transparent 50%);mask-image:linear-gradient(90deg,#000 36%,transparent 50%)}
+.hero::before{content:'';position:absolute;inset:0;background-image:var(--contour-dark);background-size:150% auto;background-repeat:no-repeat;background-position:left center;pointer-events:none;opacity:.5;
+  -webkit-mask-image:linear-gradient(90deg,#000 20%,transparent 46%);mask-image:linear-gradient(90deg,#000 20%,transparent 46%)}
 .hero-copy{position:relative;z-index:1}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-body);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);font-weight:600;margin-bottom:26px}
 .pulse-dot{width:9px;height:9px;border-radius:50%;background:var(--green);position:relative}
@@ -123,10 +123,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 @keyframes fadeIn{to{opacity:1}}
 .ring{transform-origin:center;transform-box:fill-box;animation:ping 2.6s ease-out infinite}
 
-/* ---------- IMAGEN SATELITAL REAL (hero) ---------- */
-.hero-sat{position:absolute;top:0;right:0;bottom:0;width:46vw;overflow:hidden;z-index:0;opacity:0;animation:fadeIn 1.8s ease .6s forwards}
-.hero-sat img{width:120%;max-width:none;height:100%;object-fit:cover;display:block;animation:satPan 90s linear infinite alternate}
-@keyframes satPan{from{transform:translateX(0)}to{transform:translateX(-14%)}}
+/* ---------- CARRUSEL SATELITAL (hero) ---------- */
+.hero-sat{position:absolute;top:0;right:0;bottom:0;width:46vw;overflow:hidden;z-index:0;background:var(--ink);opacity:0;animation:fadeIn 1.8s ease .6s forwards}
+.hero-carousel{position:absolute;inset:0}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.hero-slide.is-active{opacity:1}
+.hero-slide img{width:120%;max-width:none;height:100%;object-fit:cover;display:block;transform-origin:60% 50%}
+.hero-slide.is-active img{animation:heroKen 9s ease-out forwards}
+@keyframes heroKen{from{transform:scale(1.02) translateX(0)}to{transform:scale(1.13) translateX(-6%)}}
+@media(prefers-reduced-motion:reduce){.hero-slide.is-active img{animation:none}}
 .hero-sat::after{content:'';position:absolute;inset:0;background:
   linear-gradient(180deg,rgba(255,255,255,.8) 0%,rgba(255,255,255,0) 14%),
   linear-gradient(0deg,#fff 0%,rgba(255,255,255,0) 16%),
@@ -616,13 +621,13 @@ footer{border-top:2px solid var(--green)}
    ============================================================ */
 [data-theme="dark"] .nav-cta{background:var(--green);color:#08130d!important}
 [data-theme="dark"] .nav-cta:hover{background:#5cc998}
-[data-theme="dark"] .hero::before{background-image:var(--contour-light)}
+[data-theme="dark"] .hero::before{background-image:var(--contour-light);opacity:.9}
 /* la imagen satélite se funde hacia el fondo oscuro, no hacia blanco */
 [data-theme="dark"] .hero-sat::after{background:
   linear-gradient(180deg,rgba(13,17,23,.85) 0%,rgba(13,17,23,0) 15%),
   linear-gradient(0deg,var(--page-bg) 0%,rgba(13,17,23,0) 16%),
   linear-gradient(90deg,var(--page-bg) 0%,var(--page-bg) 10%,rgba(13,17,23,.97) 30%,rgba(13,17,23,.82) 48%,rgba(13,17,23,.45) 66%,rgba(13,17,23,.12) 84%,rgba(13,17,23,0) 100%)}
-[data-theme="dark"] .btn-white{background:var(--green);color:#08130d}
+/* .btn-white siempre va sobre la sección verde del CTA: se mantiene claro en ambos temas */
 [data-theme="dark"] footer{background:#0a0e13;border-top-color:var(--green)}
 [data-theme="dark"] .trust-badge{filter:brightness(0) invert(1) opacity(.85)}
 [data-theme="dark"] .trust-badge:hover{filter:brightness(0) invert(1) opacity(1)}

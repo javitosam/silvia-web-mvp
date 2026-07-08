@@ -160,6 +160,45 @@ document.documentElement.classList.add('js');
     }
   }
 
+  // Carrusel satelital del hero (imágenes locales, orden aleatorio en cada carga)
+  var carHost = document.querySelector('.hero-carousel');
+  var carCap = document.querySelector('.hero-sat-cap');
+  var sats = (window.HERO_SATS || []).slice();
+  if (carHost && sats.length) {
+    for (var s = sats.length - 1; s > 0; s--) {
+      var r = Math.floor(Math.random() * (s + 1)), tmp = sats[s]; sats[s] = sats[r]; sats[r] = tmp;
+    }
+    var slides = [];      // slides con imagen válida
+    var cur = 0;
+    var showSat = function (n) {
+      if (!slides.length) { if (carCap) carCap.textContent = ''; return; }
+      cur = ((n % slides.length) + slides.length) % slides.length;
+      slides.forEach(function (sl, k) { sl.el.classList.toggle('is-active', k === cur); });
+      if (carCap) carCap.textContent = slides[cur].data.place + ' · ' + slides[cur].data.source;
+      var im = slides[cur].img; im.style.animation = 'none'; void im.offsetWidth; im.style.animation = '';
+    };
+    sats.forEach(function (item) {
+      var slide = document.createElement('div');
+      slide.className = 'hero-slide';
+      var im = document.createElement('img');
+      im.alt = ''; im.decoding = 'async';
+      var rec = { el: slide, img: im, data: item };
+      im.addEventListener('error', function () {
+        var idx = slides.indexOf(rec);
+        if (idx < 0) return;
+        var wasActive = slide.classList.contains('is-active');
+        slides.splice(idx, 1); slide.remove();
+        if (wasActive) showSat(cur);
+      });
+      slide.appendChild(im); carHost.appendChild(slide); slides.push(rec);
+      im.src = item.src;      // src tras insertar en el DOM: así carga (sin lazy)
+    });
+    showSat(0);
+    if (!reduced) {
+      window.setInterval(function () { if (slides.length > 1) showSat(cur + 1); }, 7000);
+    }
+  }
+
   // Contadores animados en las cifras (.stat b) al entrar en pantalla
   function animateStat(b) {
     var raw = b.textContent;
