@@ -171,10 +171,15 @@ document.documentElement.classList.add('js');
     var slides = [];      // slides con imagen válida
     var cur = 0;
     var showSat = function (n) {
-      if (!slides.length) { if (carCap) carCap.textContent = ''; return; }
+      if (!slides.length) { if (carCap) carCap.innerHTML = ''; return; }
       cur = ((n % slides.length) + slides.length) % slides.length;
       slides.forEach(function (sl, k) { sl.el.classList.toggle('is-active', k === cur); });
-      if (carCap) carCap.textContent = slides[cur].data.place + ' · ' + slides[cur].data.source;
+      if (carCap) {
+        var d = slides[cur].data;
+        carCap.innerHTML = '<b></b><span></span>';
+        carCap.querySelector('b').textContent = d.place;
+        carCap.querySelector('span').textContent = d.source;
+      }
       var im = slides[cur].img; im.style.animation = 'none'; void im.offsetWidth; im.style.animation = '';
     };
     sats.forEach(function (item) {
