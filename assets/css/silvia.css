@@ -25,6 +25,7 @@
   --h2-lg:clamp(2rem,4.4vw,3.2rem);--h2-md:clamp(1.8rem,3.6vw,2.7rem);
   --contour-dark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='720' viewBox='0 0 720 720' fill='none'%3E%3Cg stroke='%231a202c' stroke-opacity='.05' stroke-width='1.2'%3E%3Cpath d='M-40 620C120 560 190 420 330 430s210 130 300 96 130-150 170-210'/%3E%3Cpath d='M-40 560C140 510 200 360 340 372s220 118 310 84 120-140 150-196'/%3E%3Cpath d='M-40 500C160 460 210 300 350 314s230 106 320 72 110-130 130-182'/%3E%3Cpath d='M60 720C180 660 260 560 400 560s240 60 320 20'/%3E%3Cpath d='M-40 220C80 190 170 90 300 96s230 84 320 60'/%3E%3Cpath d='M-40 160C90 130 180 30 310 36'/%3E%3C/g%3E%3C/svg%3E");
   --contour-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='720' viewBox='0 0 720 720' fill='none'%3E%3Cg stroke='%23ffffff' stroke-opacity='.07' stroke-width='1.2'%3E%3Cpath d='M-40 620C120 560 190 420 330 430s210 130 300 96 130-150 170-210'/%3E%3Cpath d='M-40 560C140 510 200 360 340 372s220 118 310 84 120-140 150-196'/%3E%3Cpath d='M-40 500C160 460 210 300 350 314s230 106 320 72 110-130 130-182'/%3E%3Cpath d='M60 720C180 660 260 560 400 560s240 60 320 20'/%3E%3Cpath d='M-40 220C80 190 170 90 300 96s230 84 320 60'/%3E%3Cpath d='M-40 160C90 130 180 30 310 36'/%3E%3C/g%3E%3C/svg%3E");
+  --contour-green:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='720' viewBox='0 0 720 720' fill='none'%3E%3Cg stroke='%2352c48f' stroke-opacity='.55' stroke-width='1.4'%3E%3Cpath d='M-40 620C120 560 190 420 330 430s210 130 300 96 130-150 170-210'/%3E%3Cpath d='M-40 560C140 510 200 360 340 372s220 118 310 84 120-140 150-196'/%3E%3Cpath d='M-40 500C160 460 210 300 350 314s230 106 320 72 110-130 130-182'/%3E%3Cpath d='M60 720C180 660 260 560 400 560s240 60 320 20'/%3E%3Cpath d='M-40 220C80 190 170 90 300 96s230 84 320 60'/%3E%3Cpath d='M-40 160C90 130 180 30 310 36'/%3E%3C/g%3E%3C/svg%3E");
 }
 /* ---------- TEMA OSCURO ---------- */
 :root[data-theme="dark"]{
@@ -89,8 +90,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 /* ---------- HERO (portada) ---------- */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:150px 5vw 90px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background-image:var(--contour-dark);background-size:150% auto;background-repeat:no-repeat;background-position:left center;pointer-events:none;opacity:.5;
-  -webkit-mask-image:linear-gradient(90deg,#000 20%,transparent 46%);mask-image:linear-gradient(90deg,#000 20%,transparent 46%)}
+.hero::before{content:'';position:absolute;inset:0;background-image:var(--contour-green);background-size:150% auto;background-repeat:no-repeat;background-position:left center;pointer-events:none;opacity:1;
+  -webkit-mask-image:linear-gradient(90deg,#000 24%,transparent 52%);mask-image:linear-gradient(90deg,#000 24%,transparent 52%)}
 .hero-copy{position:relative;z-index:1}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-body);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);font-weight:600;margin-bottom:26px}
 .pulse-dot{width:9px;height:9px;border-radius:50%;background:var(--green);position:relative}
@@ -136,7 +137,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   linear-gradient(180deg,rgba(255,255,255,.8) 0%,rgba(255,255,255,0) 14%),
   linear-gradient(0deg,#fff 0%,rgba(255,255,255,0) 16%),
   linear-gradient(90deg,#fff 0%,#fff 10%,rgba(255,255,255,.98) 28%,rgba(255,255,255,.85) 46%,rgba(255,255,255,.5) 64%,rgba(255,255,255,.15) 82%,rgba(255,255,255,0) 100%)}
-.hero-sat-cap{position:absolute;right:14px;bottom:12px;z-index:1;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);text-shadow:0 1px 6px rgba(14,61,37,.65)}
+.hero-sat-cap{position:absolute;right:18px;bottom:16px;z-index:1;display:flex;flex-direction:column;align-items:flex-end;gap:1px;text-align:right}
+.hero-sat-cap b{font-family:var(--font-head);font-weight:500;font-size:.86rem;letter-spacing:.005em;color:#fff;text-shadow:0 1px 10px rgba(14,61,37,.75)}
+.hero-sat-cap span{font-family:var(--font-body);font-size:.6rem;letter-spacing:.05em;color:rgba(255,255,255,.68);text-shadow:0 1px 6px rgba(14,61,37,.6)}
 @media(max-width:1150px){
   .hero-sat{display:none}
 }
@@ -203,12 +206,12 @@ section{padding:120px 5vw;position:relative}
 .reveal.in .how-bar{transform:scaleX(1)}
 
 /* ---------- EQUIPO ---------- */
-.team-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:26px 22px;margin-top:60px}
-.member{flex:0 1 200px;min-width:160px}
+.team-grid{display:flex;flex-wrap:nowrap;gap:16px;margin-top:60px;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin}
+.member{flex:1 1 0;min-width:124px}
 .member img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-s);filter:saturate(.94);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
 .member:hover img{transform:translateY(-6px)}
 .member h3{font-size:1.02rem;margin-top:16px}
-.member .role{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-top:6px}
+.member .role{font-family:var(--font-head);font-size:.82rem;letter-spacing:.01em;text-transform:none;color:var(--steel);margin-top:5px;font-weight:500}
 .member p{font-size:.85rem;color:var(--grey);margin-top:6px;line-height:1.45}
 
 /* ---------- CTA ---------- */
@@ -219,7 +222,7 @@ section{padding:120px 5vw;position:relative}
 .cta .reveal{position:relative}
 
 /* ---------- SUB-HERO (páginas interiores) ---------- */
-.sub-hero{padding:150px 5vw 90px;position:relative;overflow:hidden;color:#fff}
+.sub-hero{padding:150px 5vw 90px 8.5vw;position:relative;overflow:hidden;color:#fff}
 .sub-hero::before{content:'';position:absolute;inset:0;background-image:var(--contour-light);background-size:130% auto;background-repeat:no-repeat;background-position:center;pointer-events:none}
 .sub-hero.green{background:var(--green)}
 .sub-hero.ink{background:var(--ink)}
@@ -465,7 +468,7 @@ nav{transition:padding .35s cubic-bezier(.2,.7,.2,1),background .35s,box-shadow 
 .btn-ghost:hover{background:rgba(26,32,44,.045)}
 
 /* Leyenda de la imagen satelital como chip de instrumento */
-.hero-sat-cap{background:rgba(10,31,20,.55);padding:6px 11px;border:1px solid rgba(255,255,255,.16);border-radius:2px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);text-shadow:none}
+/* subtítulo minimalista: sin caja */
 
 /* Tabla comparativa: cebra y fila activa */
 .compare tbody tr:nth-child(even) td{background:var(--surface-alt)}
@@ -635,12 +638,12 @@ footer{border-top:2px solid var(--green)}
 /* ============================================================
    EQUIPO (Quiénes somos) — retratos circulares, monocromo verde
    ============================================================ */
-.member img{width:100%;max-width:210px;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:50%;
-  border:1px solid var(--border);margin:0 auto;display:block;
-  filter:grayscale(1) sepia(.5) hue-rotate(78deg) saturate(1.35) contrast(1.03) brightness(.98);
+.member img{width:100%;max-width:none;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-s);
+  border:1px solid var(--border);margin:0;display:block;
+  filter:grayscale(1) contrast(1.05);
   transition:filter .45s ease,transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
 .member{text-align:center}
-.member:hover img{filter:grayscale(0) contrast(1.02);transform:translateY(-6px);box-shadow:0 16px 34px -20px rgba(56,161,105,.45)}
+.member:hover img{filter:grayscale(0) contrast(1.02);transform:translateY(-6px);box-shadow:0 16px 34px -20px rgba(26,32,44,.35)}
 @media(prefers-reduced-motion:reduce){.member img{transition:none}}
 
 /* ============================================================
@@ -671,3 +674,27 @@ footer{border-top:2px solid var(--green)}
   .loc-grid{grid-template-columns:1fr}
   .loc-map{min-height:300px}
 }
+
+/* ============================================================
+   QUIÉNES SOMOS — "Nuestra misión": reveal editorial (barrido + filete)
+   ============================================================ */
+.mission-title{will-change:transform,opacity}
+.js .mission-title.reveal{opacity:0;transform:translateX(-32px);
+  transition:opacity .9s cubic-bezier(.16,.68,.2,1),transform 1s cubic-bezier(.16,.68,.2,1)}
+.js .mission-title.reveal.in{opacity:1;transform:translateX(0)}
+.mission-rule{height:2px;width:130px;margin-top:20px;border-radius:2px;background:linear-gradient(90deg,var(--green) 60%,transparent)}
+.js .mission-rule.reveal{opacity:1;transform:scaleX(0);transform-origin:left;
+  transition:transform 1.1s cubic-bezier(.19,1,.22,1) .3s}
+.js .mission-rule.reveal.in{transform:scaleX(1)}
+@media(prefers-reduced-motion:reduce){
+  .js .mission-title.reveal{opacity:1;transform:none}
+  .js .mission-rule.reveal{transform:scaleX(1)}
+}
+
+/* ============================================================
+   PLATAFORMA — título de subportada destacado (distinto al resto)
+   ============================================================ */
+.sub-hero.sub-plat .eyebrow{color:var(--accent)}
+.plat-title{font-size:clamp(3rem,8vw,6rem);line-height:.98;letter-spacing:-.04em;max-width:13ch;font-weight:600}
+.plat-title em{font-style:normal;color:var(--green)}
+@media(max-width:640px){.plat-title{font-size:clamp(2.6rem,12vw,3.4rem)}}
