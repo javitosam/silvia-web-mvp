@@ -129,8 +129,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
 .hero-slide.is-active{opacity:1}
 .hero-slide img{width:120%;max-width:none;height:100%;object-fit:cover;display:block;transform-origin:60% 50%}
-.hero-slide.is-active img{animation:heroKen 9s ease-out forwards}
-@keyframes heroKen{from{transform:scale(1.02) translateX(0)}to{transform:scale(1.13) translateX(-6%)}}
+.hero-slide.is-active img{animation:heroKen 48s ease-in-out infinite alternate}
+@keyframes heroKen{from{transform:scale(1.03) translateX(0)}to{transform:scale(1.1) translateX(-4%)}}
 @media(prefers-reduced-motion:reduce){.hero-slide.is-active img{animation:none}}
 .hero-sat::after{content:'';position:absolute;inset:0;background:
   linear-gradient(180deg,rgba(255,255,255,.8) 0%,rgba(255,255,255,0) 14%),

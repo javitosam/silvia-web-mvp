@@ -193,10 +193,7 @@ document.documentElement.classList.add('js');
       slide.appendChild(im); carHost.appendChild(slide); slides.push(rec);
       im.src = item.src;      // src tras insertar en el DOM: así carga (sin lazy)
     });
-    showSat(0);
-    if (!reduced) {
-      window.setInterval(function () { if (slides.length > 1) showSat(cur + 1); }, 7000);
-    }
+    showSat(0);   // una sola imagen aleatoria por carga (sin rotación; cambia al recargar)
   }
 
   // Contadores animados en las cifras (.stat b) al entrar en pantalla
