@@ -168,32 +168,34 @@ document.documentElement.classList.add('js');
     for (var s = sats.length - 1; s > 0; s--) {
       var r = Math.floor(Math.random() * (s + 1)), tmp = sats[s]; sats[s] = sats[r]; sats[r] = tmp;
     }
-    var slides = sats.map(function (item, i) {
+    var slides = [];      // slides con imagen válida
+    var cur = 0;
+    var showSat = function (n) {
+      if (!slides.length) { if (carCap) carCap.textContent = ''; return; }
+      cur = ((n % slides.length) + slides.length) % slides.length;
+      slides.forEach(function (sl, k) { sl.el.classList.toggle('is-active', k === cur); });
+      if (carCap) carCap.textContent = slides[cur].data.place + ' · ' + slides[cur].data.source;
+      var im = slides[cur].img; im.style.animation = 'none'; void im.offsetWidth; im.style.animation = '';
+    };
+    sats.forEach(function (item) {
       var slide = document.createElement('div');
       slide.className = 'hero-slide';
       var im = document.createElement('img');
-      im.src = item.src; im.alt = ''; im.decoding = 'async';
-      im.loading = i === 0 ? 'eager' : 'lazy';
-      if (i === 0) im.fetchPriority = 'high';
-      slide.appendChild(im); carHost.appendChild(slide);
-      return slide;
+      im.alt = ''; im.decoding = 'async';
+      var rec = { el: slide, img: im, data: item };
+      im.addEventListener('error', function () {
+        var idx = slides.indexOf(rec);
+        if (idx < 0) return;
+        var wasActive = slide.classList.contains('is-active');
+        slides.splice(idx, 1); slide.remove();
+        if (wasActive) showSat(cur);
+      });
+      slide.appendChild(im); carHost.appendChild(slide); slides.push(rec);
+      im.src = item.src;      // src tras insertar en el DOM: así carga (sin lazy)
     });
-    var cur = 0;
-    var showSat = function (n) {
-      slides.forEach(function (sl, k) { sl.classList.toggle('is-active', k === n); });
-      if (carCap) carCap.textContent = sats[n].place + ' · ' + sats[n].source;
-    };
-    // reinicia la animación Ken-Burns en cada cambio
-    var restartKen = function (n) {
-      var im = slides[n].querySelector('img');
-      im.style.animation = 'none'; void im.offsetWidth; im.style.animation = '';
-    };
     showSat(0);
-    if (slides.length > 1 && !reduced) {
-      window.setInterval(function () {
-        cur = (cur + 1) % slides.length;
-        showSat(cur); restartKen(cur);
-      }, 7000);
+    if (!reduced) {
+      window.setInterval(function () { if (slides.length > 1) showSat(cur + 1); }, 7000);
     }
   }
 
