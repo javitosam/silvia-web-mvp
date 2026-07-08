@@ -733,3 +733,14 @@ footer{border-top:2px solid var(--green)}
   /* la imagen satelital del hero no crece sin límite en pantallas enormes */
   .hero-sat{width:clamp(0px,46vw,860px)}
 }
+
+/* ============================================================
+   MÓVIL — hero centrado (sin imagen satelital, una sola columna)
+   ============================================================ */
+@media(max-width:768px){
+  .hero-copy{text-align:center}
+  .hero-copy .eyebrow{justify-content:center}
+  .hero h1{margin-left:auto;margin-right:auto}
+  .hero-copy p{margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
+}
