@@ -71,7 +71,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 /* wordmark heredado (fallback si se usa texto) */
 .logo-word{font-family:var(--font-head);font-size:1.3rem;font-weight:600;color:var(--text,var(--black))}
 .logo-word b{color:var(--green);font-weight:600}
-.nav-links{display:flex;align-items:center;gap:26px;list-style:none}
+.nav-links{display:flex;align-items:center;gap:26px;list-style:none;margin-left:2.2vw}
 .nav-links a{text-decoration:none;color:var(--grey);font-size:.9rem;font-weight:500;position:relative;padding:4px 0;transition:color .25s;cursor:pointer}
 .nav-links a::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
 .nav-links a:hover{color:var(--text)}
@@ -326,7 +326,7 @@ footer{background:var(--black);color:var(--steel);padding:60px 5vw 38px;font-siz
   .nav-links{display:none}
   .burger{display:block;background:none;border:none;cursor:pointer;padding:6px}
   .burger span{display:block;width:24px;height:2px;background:var(--text);margin:5px 0;transition:.3s}
-  nav.open .nav-links{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--page-bg);padding:22px 5vw 30px;gap:18px;border-bottom:1px solid var(--mist);align-items:flex-start}
+  nav.open .nav-links{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;margin-left:0;background:var(--page-bg);padding:22px 5vw 30px;gap:18px;border-bottom:1px solid var(--mist);align-items:flex-start}
   nav.open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   nav.open .burger span:nth-child(2){opacity:0}
   nav.open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
