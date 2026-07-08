@@ -744,3 +744,14 @@ footer{border-top:2px solid var(--green)}
   .hero-copy p{margin-left:auto;margin-right:auto}
   .hero-actions{justify-content:center}
 }
+
+/* ============================================================
+   MÓVIL — botones de acción alineados a la derecha (alcance con el pulgar)
+   Afecta a CTAs tipo "Escribir a SilvIA", "Cómo llegar", callouts de plan.
+   El hero de la landing se mantiene centrado (regla anterior).
+   ============================================================ */
+@media(max-width:860px){
+  .plan-box{align-items:stretch}
+  .plan-box>.btn,.plan-box .btn{align-self:flex-end}
+  .loc-actions{justify-content:flex-end}
+}
