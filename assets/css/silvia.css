@@ -134,12 +134,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 @keyframes heroKen{from{transform:scale(1.03) translateX(0)}to{transform:scale(1.1) translateX(-4%)}}
 @media(prefers-reduced-motion:reduce){.hero-slide.is-active img{animation:none}}
 .hero-sat::after{content:'';position:absolute;inset:0;background:
-  linear-gradient(180deg,rgba(255,255,255,.8) 0%,rgba(255,255,255,0) 14%),
-  linear-gradient(0deg,#fff 0%,rgba(255,255,255,0) 16%),
-  linear-gradient(90deg,#fff 0%,#fff 10%,rgba(255,255,255,.98) 28%,rgba(255,255,255,.85) 46%,rgba(255,255,255,.5) 64%,rgba(255,255,255,.15) 82%,rgba(255,255,255,0) 100%)}
+  linear-gradient(180deg,rgba(255,255,255,.7) 0%,rgba(255,255,255,0) 12%),
+  linear-gradient(0deg,rgba(255,255,255,.4) 0%,rgba(255,255,255,0) 9%),
+  radial-gradient(130% 95% at 100% 100%,rgba(12,28,20,.52) 0%,rgba(12,28,20,0) 50%),
+  linear-gradient(90deg,#fff 0%,rgba(255,255,255,.9) 6%,rgba(255,255,255,.56) 22%,rgba(255,255,255,.3) 40%,rgba(255,255,255,.1) 60%,rgba(255,255,255,0) 80%)}
 .hero-sat-cap{position:absolute;right:18px;bottom:16px;z-index:1;display:flex;flex-direction:column;align-items:flex-end;gap:1px;text-align:right}
-.hero-sat-cap b{font-family:var(--font-head);font-weight:500;font-size:.86rem;letter-spacing:.005em;color:#fff;text-shadow:0 1px 10px rgba(14,61,37,.75)}
-.hero-sat-cap span{font-family:var(--font-body);font-size:.6rem;letter-spacing:.05em;color:rgba(255,255,255,.68);text-shadow:0 1px 6px rgba(14,61,37,.6)}
+.hero-sat-cap b{font-family:var(--font-head);font-weight:500;font-size:.86rem;letter-spacing:.005em;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.55),0 1px 16px rgba(0,0,0,.35)}
+.hero-sat-cap span{font-family:var(--font-body);font-size:.6rem;letter-spacing:.05em;color:rgba(255,255,255,.82);text-shadow:0 1px 3px rgba(0,0,0,.5),0 1px 10px rgba(0,0,0,.3)}
 @media(max-width:1150px){
   .hero-sat{display:none}
 }
@@ -627,9 +628,9 @@ footer{border-top:2px solid var(--green)}
 [data-theme="dark"] .hero::before{background-image:var(--contour-light);opacity:.9}
 /* la imagen satélite se funde hacia el fondo oscuro, no hacia blanco */
 [data-theme="dark"] .hero-sat::after{background:
-  linear-gradient(180deg,rgba(13,17,23,.85) 0%,rgba(13,17,23,0) 15%),
-  linear-gradient(0deg,var(--page-bg) 0%,rgba(13,17,23,0) 16%),
-  linear-gradient(90deg,var(--page-bg) 0%,var(--page-bg) 10%,rgba(13,17,23,.97) 30%,rgba(13,17,23,.82) 48%,rgba(13,17,23,.45) 66%,rgba(13,17,23,.12) 84%,rgba(13,17,23,0) 100%)}
+  linear-gradient(180deg,rgba(13,17,23,.8) 0%,rgba(13,17,23,0) 12%),
+  linear-gradient(0deg,var(--page-bg) 0%,rgba(13,17,23,0) 10%),
+  linear-gradient(90deg,var(--page-bg) 0%,rgba(13,17,23,.92) 8%,rgba(13,17,23,.6) 24%,rgba(13,17,23,.32) 42%,rgba(13,17,23,.1) 62%,rgba(13,17,23,0) 82%)}
 /* .btn-white siempre va sobre la sección verde del CTA: se mantiene claro en ambos temas */
 [data-theme="dark"] footer{background:#0a0e13;border-top-color:var(--green)}
 [data-theme="dark"] .trust-badge{filter:brightness(0) invert(1) opacity(.85)}
@@ -694,7 +695,11 @@ footer{border-top:2px solid var(--green)}
 /* ============================================================
    PLATAFORMA — título de subportada destacado (distinto al resto)
    ============================================================ */
+.sub-hero.sub-plat{text-align:center;padding-left:5vw;padding-right:5vw}
 .sub-hero.sub-plat .eyebrow{color:var(--accent)}
-.plat-title{font-size:clamp(3rem,8vw,6rem);line-height:.98;letter-spacing:-.04em;max-width:13ch;font-weight:600}
+.sub-hero.sub-plat .sub-back{margin-left:auto;margin-right:auto}
+.sub-hero.sub-plat>p{margin-left:auto;margin-right:auto}
+.sub-hero.sub-plat .stats{justify-content:center}
+.plat-title{font-size:clamp(3rem,8vw,6rem);line-height:.98;letter-spacing:-.04em;max-width:none;margin-left:auto;margin-right:auto;font-weight:600}
 .plat-title em{font-style:normal;color:var(--green)}
 @media(max-width:640px){.plat-title{font-size:clamp(2.6rem,12vw,3.4rem)}}
