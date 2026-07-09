@@ -309,7 +309,7 @@ table.compare{width:100%;border-collapse:collapse;font-size:.92rem;min-width:560
 /* ---------- FOOTER ---------- */
 footer{background:var(--black);color:var(--steel);padding:60px 5vw 38px;font-size:.9rem}
 .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)}
-.foot-logo{height:34px;width:auto;display:block;margin-bottom:16px}
+.foot-logo{height:34px;width:auto;display:block;margin-bottom:16px;filter:brightness(0) invert(1)}
 .foot-tagline{max-width:32ch;margin-top:2px;line-height:1.6}
 .foot-links{display:flex;gap:56px;flex-wrap:wrap}
 .foot-links h4{color:#fff;font-size:.84rem;margin-bottom:14px;letter-spacing:.04em}
