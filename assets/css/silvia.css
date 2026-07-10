@@ -118,6 +118,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .btn-primary:hover{background:#2f8f5c;transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(56,161,105,.6)}
 .btn-ghost{color:var(--text);border-color:var(--ctrl-border-hover)}
 .btn-ghost:hover{border-color:var(--text);transform:translateY(-2px)}
+.sub-hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5)}
+.sub-hero .btn-ghost:hover{color:#fff;border-color:#fff;background:rgba(255,255,255,.1)}
 .btn-white{background:#fff;color:var(--black)}
 .btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 26px -14px rgba(0,0,0,.4)}
 
@@ -761,4 +763,10 @@ footer{border-top:2px solid var(--green)}
   .plan-box{align-items:stretch}
   .plan-box>.btn,.plan-box .btn{align-self:flex-end}
   .loc-actions{justify-content:flex-end}
+}
+
+/* Equipo en móvil: fotos en vertical (rejilla 2 columnas), sin scroll horizontal */
+@media(max-width:680px){
+  .team-grid{flex-wrap:wrap;overflow-x:visible;overflow-y:visible;gap:22px 14px;padding-bottom:0;margin-top:40px}
+  .team-grid .member{flex:1 1 calc(50% - 7px);min-width:0}
 }
