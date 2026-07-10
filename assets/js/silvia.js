@@ -52,6 +52,7 @@ document.documentElement.classList.add('js');
     '<svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.8 6.8 0 0 0 9.8 9.8Z"/></svg>';
   var applyTheme = function (t) {
     root.setAttribute('data-theme', t);
+    root.style.background = t === 'dark' ? '#0d1117' : '#ffffff';
     themeBtn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
     try { localStorage.setItem('theme', t); } catch (e) {}
   };
