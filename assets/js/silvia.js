@@ -61,32 +61,37 @@ document.documentElement.classList.add('js');
     applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
   });
 
-  // --- Selector de idioma (popup) a partir del enlace .lang-link ---
+  // --- Selector de idioma (popup) desde los <link rel="alternate" hreflang> ---
   var langLink = document.querySelector('.lang-link');
-  if (langLink) {
-    var isES = (root.getAttribute('lang') || 'es').slice(0, 2).toLowerCase() !== 'en';
-    var otherHref = langLink.getAttribute('href') || '#';
-    var esData = { name: 'Español', code: 'ES' };
-    var enData = { name: 'English', code: 'EN' };
-    var cur = isES ? esData : enData;
-
-    var opt = function (d, active, href, lang) {
+  var langNames = { es: 'Español', en: 'English', pt: 'Português', fr: 'Français' };
+  var langOrder = ['es', 'en', 'pt', 'fr'];
+  var curLang = (root.getAttribute('lang') || 'es').slice(0, 2).toLowerCase();
+  if (!langNames[curLang]) curLang = 'es';
+  var alts = {};
+  document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(function (l) {
+    var lg = (l.getAttribute('hreflang') || '').slice(0, 2).toLowerCase();
+    if (langNames[lg]) alts[lg] = l.getAttribute('href');
+  });
+  var langs = langOrder.filter(function (lg) { return lg === curLang || alts[lg]; });
+  if (langLink && langs.length > 1) {
+    var opt = function (lg) {
+      var active = lg === curLang;
+      var href = active ? '#' : (alts[lg] || '#');
       return '<a class="lang-opt' + (active ? ' active' : '') + '" role="menuitem" href="' + href + '"' +
-        (active ? ' aria-current="true"' : ' hreflang="' + lang + '" lang="' + lang + '"') +
-        '><span class="code">' + d.code + '</span><span class="name">' + d.name + '</span></a>';
+        (active ? ' aria-current="true"' : ' hreflang="' + lg + '" lang="' + lg + '"') +
+        '><span class="code">' + lg.toUpperCase() + '</span><span class="name">' + langNames[lg] + '</span></a>';
     };
     var pop = document.createElement('div');
     pop.className = 'lang-pop';
     pop.innerHTML =
       '<button class="lang-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Idioma / Language">' +
         '<svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>' +
-        '<span>' + cur.code + '</span>' +
+        '<span>' + curLang.toUpperCase() + '</span>' +
         '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>' +
       '</button>' +
       '<div class="lang-menu" role="menu">' +
         '<span class="lang-head">Idioma · Language</span>' +
-        opt(esData, isES, isES ? '#' : otherHref, 'es') +
-        opt(enData, !isES, !isES ? '#' : otherHref, 'en') +
+        langs.map(opt).join('') +
       '</div>';
 
     var toggle = pop.querySelector('.lang-toggle');
