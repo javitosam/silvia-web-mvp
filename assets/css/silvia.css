@@ -765,8 +765,12 @@ footer{border-top:2px solid var(--green)}
   .loc-actions{justify-content:flex-end}
 }
 
-/* Equipo en móvil: fotos en vertical (rejilla 2 columnas), sin scroll horizontal */
+/* Equipo en móvil: fotos en una sola columna (en línea), todas iguales,
+   con animación de aparición al hacer scroll (cada foto entra por separado) */
 @media(max-width:680px){
-  .team-grid{flex-wrap:wrap;overflow-x:visible;overflow-y:visible;gap:22px 14px;padding-bottom:0;margin-top:40px}
-  .team-grid .member{flex:1 1 calc(50% - 7px);min-width:0}
+  .team-grid{flex-wrap:wrap;overflow-x:visible;overflow-y:visible;gap:34px;padding-bottom:0;margin-top:36px}
+  .team-grid .member{flex:0 0 100%;min-width:0}
+  .team-grid .member img{aspect-ratio:4/5}
+  .js .team-grid .member.reveal{transition-delay:0s!important;transform:translateY(38px) scale(.965)}
+  .js .team-grid .member.reveal.in{transform:none}
 }
