@@ -20,7 +20,7 @@ const MAIL_TO = 'info@silviaearth.com';
 // Remitente. IMPORTANTE: en Arsys debe ser una cuenta de TU dominio que
 // exista de verdad (créala en el panel si hace falta). No pongas el correo
 // del visitante aquí: los servidores lo rechazarían como falsificación.
-const MAIL_FROM = 'no-reply@silviaearth.com';
+const MAIL_FROM = 'noreply@silviaearth.com';
 
 // Nombre visible del remitente y prefijo del asunto.
 const MAIL_FROM_NAME = 'Web SilvIA';
