@@ -6,7 +6,7 @@
 
   var status = form.querySelector('.form-status');
   var submitBtn = form.querySelector('button[type="submit"]');
-  var endpoint = form.getAttribute('data-endpoint') || '/api/contact';
+  var endpoint = form.getAttribute('data-endpoint') || 'contact.php';
 
   var T = {
     sending: form.getAttribute('data-t-sending') || 'Enviando…',
