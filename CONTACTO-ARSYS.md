@@ -8,7 +8,7 @@ cada vez que alguien envía el formulario.
 ## Puesta en marcha (una sola vez)
 
 1. **Crea el buzón remitente en el panel de Arsys.**
-   El script envía *desde* `no-reply@silviaearth.com`. Crea esa cuenta (o
+   El script envía *desde* `noreply@silviaearth.com`. Crea esa cuenta (o
    cámbiala en `contact.php`, constante `MAIL_FROM`). Debe ser una dirección
    real de tu dominio: los servidores rechazan correos con remitentes falsos.
 
