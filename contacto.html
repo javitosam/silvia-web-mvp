@@ -88,13 +88,24 @@
   </section>
 
   <section class="plan">
-    <div class="plan-box reveal">
-      <div>
-        <span class="pl-tag">Escríbenos hoy</span>
-        <h3>info@silviaearth.com</h3>
-        <p>Para que la primera respuesta ya venga con sustancia, cuéntanos en tu mensaje: qué territorio gestionas y dónde está, su extensión aproximada y tu sector (administración pública, seguros, empresa o particular).</p>
-      </div>
-      <a class="btn btn-primary" href="mailto:info@silviaearth.com">Escribir a SilvIA</a>
+    <div class="plan-box is-form reveal">
+      <span class="pl-tag">Escríbenos hoy</span>
+      <h3>Cuéntanos tu caso</h3>
+      <p>Rellena el formulario y te responde directamente el equipo. Para que la primera respuesta venga con sustancia, dinos qué territorio gestionas, su extensión aproximada y tu sector.</p>
+      <form class="contact-form" data-endpoint="/api/contact" data-t-sending="Enviando…" data-t-ok="¡Gracias! Te responderemos pronto." data-t-err="No se pudo enviar. Escríbenos a info@silviaearth.com.">
+        <div class="f-row"><label for="cf-name">Nombre <span class="req">*</span></label><input id="cf-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="f-row"><label for="cf-email">Email <span class="req">*</span></label><input id="cf-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="f-row"><label for="cf-org">Organización</label><input id="cf-org" name="organization" type="text" autocomplete="organization"></div>
+        <div class="f-row"><label for="cf-sector">Sector</label><select id="cf-sector" name="sector"><option value="">Selecciona…</option><option>Administración pública</option><option>Seguros</option><option>Empresa</option><option>Particular</option></select></div>
+        <div class="f-row f-full"><label for="cf-territory">Territorio (dónde está y extensión aprox.)</label><input id="cf-territory" name="territory" type="text"></div>
+        <div class="f-row f-full"><label for="cf-message">Mensaje</label><textarea id="cf-message" name="message"></textarea></div>
+        <div class="hp" aria-hidden="true"><label>No rellenar<input name="company_website" tabindex="-1" autocomplete="off"></label></div>
+        <div class="f-actions">
+          <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+      <p class="form-alt">¿Prefieres el correo directo? <a href="mailto:info@silviaearth.com">info@silviaearth.com</a></p>
     </div>
   </section>
 
@@ -151,5 +162,6 @@
 </footer>
 
 <script src="assets/js/silvia.js"></script>
+<script src="assets/js/contact-form.js"></script>
 </body>
 </html>
