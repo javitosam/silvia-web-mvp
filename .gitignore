@@ -1,0 +1,6 @@
+# Configuración con secretos del formulario de contacto (NO subir al repo)
+contact-config.php
+
+# Sistema
+.DS_Store
+*.log

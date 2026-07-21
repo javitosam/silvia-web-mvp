@@ -1,40 +1,18 @@
 <?php
 /**
- * SilvIA — Manejador del formulario de contacto (Arsys / hosting PHP).
+ * SilvIA — Manejador del formulario de contacto (hosting PHP / Arsys).
  *
  * Recibe el envío del formulario (JSON o form-urlencoded), valida los datos
- * y envía un correo con la función mail() de PHP. Pensado para alojamiento
- * compartido de Arsys, sin dependencias externas ni procesos en segundo plano.
+ * y envía el correo por SMTP autenticado a través de Google (smtp.gmail.com),
+ * para que llegue a la bandeja de entrada con SPF/DKIM/DMARC correctos.
  *
- * Configura las 3 constantes de abajo y sube este archivo junto al resto de
- * la web. El formulario apunta a él con data-endpoint="contact.php".
+ * La configuración con la contraseña va en un archivo aparte,
+ * contact-config.php, que NO se sube al repositorio (ver .gitignore).
+ * Copia contact-config.example.php a contact-config.php y rellénalo.
  */
-
-/* ------------------------------------------------------------------ */
-/*  CONFIGURACIÓN — edita solo estas líneas                            */
-/* ------------------------------------------------------------------ */
-
-// Buzón que RECIBE los mensajes del formulario.
-const MAIL_TO = 'info@silviaearth.com';
-
-// Remitente. IMPORTANTE: en Arsys debe ser una cuenta de TU dominio que
-// exista de verdad (créala en el panel si hace falta). No pongas el correo
-// del visitante aquí: los servidores lo rechazarían como falsificación.
-const MAIL_FROM = 'noreply@silviaearth.com';
-
-// Nombre visible del remitente y prefijo del asunto.
-const MAIL_FROM_NAME = 'Web SilvIA';
-const SUBJECT_PREFIX = '[Contacto web]';
-
-/* ------------------------------------------------------------------ */
-/*  A partir de aquí no hace falta tocar nada                          */
-/* ------------------------------------------------------------------ */
 
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
-
-// Mismo dominio (web + PHP en Arsys): no se necesita CORS. Si algún día
-// sirves la web desde otro origen, añade aquí la cabecera correspondiente.
 
 function respond($ok, $error = null, $code = 200) {
     http_response_code($code);
@@ -44,7 +22,27 @@ function respond($ok, $error = null, $code = 200) {
     exit;
 }
 
-// Solo POST.
+/* --- Cargar configuración (con secretos, fuera del repo) --- */
+$configFile = __DIR__ . '/contact-config.php';
+if (!is_readable($configFile)) {
+    error_log('contact.php: falta contact-config.php');
+    respond(false, 'El formulario no está configurado todavía.', 500);
+}
+$cfg = require $configFile;
+if (!is_array($cfg) || empty($cfg['smtp_pass']) || $cfg['smtp_pass'] === 'xxxxxxxxxxxxxxxx') {
+    error_log('contact.php: contact-config.php sin smtp_pass');
+    respond(false, 'El formulario no está configurado todavía.', 500);
+}
+$cfg += array(
+    'smtp_host' => 'smtp.gmail.com',
+    'smtp_port' => 587,
+    'mail_to' => $cfg['smtp_user'],
+    'mail_from' => $cfg['smtp_user'],
+    'mail_from_name' => 'Web SilvIA',
+    'subject_prefix' => '[Contacto web]',
+);
+
+/* --- Solo POST --- */
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respond(false, 'Método no permitido.', 405);
 }
@@ -76,7 +74,7 @@ if ($honeypot !== '') {
     respond(true);
 }
 
-/* --- Límite básico por IP (5 envíos / 10 min) usando un archivo temporal. --- */
+/* --- Límite básico por IP (5 envíos / 10 min) con un archivo temporal. --- */
 $ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 'unknown';
 $throttleFile = sys_get_temp_dir() . '/silvia_contact_' . md5($ip) . '.txt';
 $now = time();
@@ -86,7 +84,7 @@ if (is_readable($throttleFile)) {
     if ($prev !== false && $prev !== '') {
         foreach (explode(',', $prev) as $t) {
             $t = (int) $t;
-            if ($t > $now - 600) { $hits[] = $t; } // últimos 10 min
+            if ($t > $now - 600) { $hits[] = $t; }
         }
     }
 }
@@ -107,20 +105,19 @@ if ($message === '' && $territory === '') {
 
 /* --- Evitar inyección de cabeceras: sin saltos de línea en campos de cabecera. --- */
 function oneLine($s) {
-    return trim(str_replace(array("\r", "\n", "%0a", "%0d"), ' ', $s));
+    return trim(str_replace(array("\r", "\n"), ' ', $s));
 }
 $safeEmail = oneLine($email);
 $safeName  = oneLine($name);
 
 /* --- Componer el correo (texto plano, UTF-8) --- */
-$sectorLabel = $sector !== '' ? $sector : '(sin especificar)';
 $bodyLines = array(
     'Nuevo mensaje desde el formulario de contacto de la web.',
     '',
     'Nombre:        ' . $name,
     'Email:         ' . $email,
     'Organización:  ' . ($organization !== '' ? $organization : '(sin especificar)'),
-    'Sector:        ' . $sectorLabel,
+    'Sector:        ' . ($sector !== '' ? $sector : '(sin especificar)'),
     'Territorio:    ' . ($territory !== '' ? $territory : '(sin especificar)'),
     'Idioma web:    ' . ($lang !== '' ? $lang : 'es'),
     '',
@@ -131,20 +128,16 @@ $bodyLines = array(
 );
 $body = implode("\n", $bodyLines);
 
-$subject = SUBJECT_PREFIX . ' ' . ($organization !== '' ? $organization . ' — ' : '') . $safeName;
+$subjectText = $cfg['subject_prefix'] . ' '
+    . ($organization !== '' ? $organization . ' — ' : '') . $safeName;
 
-$headers  = 'From: ' . MAIL_FROM_NAME . ' <' . MAIL_FROM . ">\r\n";
-$headers .= 'Reply-To: ' . $safeName . ' <' . $safeEmail . ">\r\n";
-$headers .= "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$headers .= "Content-Transfer-Encoding: 8bit\r\n";
-
-// El 5º parámetro fija el remitente de sobre (envelope). En Arsys ayuda a
-// que el correo no se rechace; debe ser una cuenta real de tu dominio.
-$sent = @mail(MAIL_TO, '=?UTF-8?B?' . base64_encode($subject) . '?=', $body, $headers, '-f' . MAIL_FROM);
+/* --- Enviar por SMTP autenticado (Google) --- */
+$err = '';
+$sent = smtp_send($cfg, $cfg['mail_to'], $subjectText, $body, $safeName, $safeEmail, $err);
 
 if (!$sent) {
-    respond(false, 'No se pudo enviar el correo. Escríbenos a ' . MAIL_TO . '.', 500);
+    error_log('contact.php: fallo SMTP: ' . $err);
+    respond(false, 'No se pudo enviar el mensaje. Escríbenos a ' . $cfg['mail_to'] . '.', 502);
 }
 
 /* --- Registrar el envío para el límite por IP (best-effort) --- */
@@ -152,3 +145,83 @@ $hits[] = $now;
 @file_put_contents($throttleFile, implode(',', $hits), LOCK_EX);
 
 respond(true);
+
+
+/* ================================================================== */
+/*  Cliente SMTP mínimo con STARTTLS + AUTH LOGIN (sin dependencias)   */
+/* ================================================================== */
+
+function mimeEncodeHeader($s) {
+    // Codifica solo si hay caracteres no ASCII.
+    if (preg_match('/[^\x20-\x7E]/', $s)) {
+        return '=?UTF-8?B?' . base64_encode($s) . '?=';
+    }
+    return $s;
+}
+
+function smtp_send($cfg, $to, $subject, $body, $replyToName, $replyToEmail, &$err) {
+    $host = $cfg['smtp_host'];
+    $port = (int) $cfg['smtp_port'];
+    $timeout = 20;
+
+    $transport = ($port === 465) ? 'ssl://' : 'tcp://';
+    $fp = @stream_socket_client($transport . $host . ':' . $port, $errno, $errstr, $timeout);
+    if (!$fp) { $err = "conexión ($errno): $errstr"; return false; }
+    stream_set_timeout($fp, $timeout);
+
+    $read = function () use ($fp) {
+        $out = '';
+        while (($line = fgets($fp, 515)) !== false) {
+            $out .= $line;
+            // La última línea de una respuesta SMTP tiene un espacio en la 4ª posición.
+            if (strlen($line) < 4 || $line[3] === ' ') { break; }
+        }
+        return $out;
+    };
+    $send = function ($cmd) use ($fp) { fwrite($fp, $cmd . "\r\n"); };
+    $code = function ($resp) { return (int) substr($resp, 0, 3); };
+
+    $r = $read();               if ($code($r) !== 220) { $err = trim($r); fclose($fp); return false; }
+    $send('EHLO silviaearth.com'); $r = $read(); if ($code($r) !== 250) { $err = trim($r); fclose($fp); return false; }
+
+    if ($port !== 465) {
+        $send('STARTTLS'); $r = $read(); if ($code($r) !== 220) { $err = trim($r); fclose($fp); return false; }
+        $crypto = STREAM_CRYPTO_METHOD_TLS_CLIENT;
+        if (defined('STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT')) {
+            $crypto |= STREAM_CRYPTO_METHOD_TLSv1_1_CLIENT | STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT;
+        }
+        if (!@stream_socket_enable_crypto($fp, true, $crypto)) { $err = 'STARTTLS falló'; fclose($fp); return false; }
+        $send('EHLO silviaearth.com'); $r = $read(); if ($code($r) !== 250) { $err = trim($r); fclose($fp); return false; }
+    }
+
+    $send('AUTH LOGIN'); $r = $read(); if ($code($r) !== 334) { $err = trim($r); fclose($fp); return false; }
+    $send(base64_encode($cfg['smtp_user'])); $r = $read(); if ($code($r) !== 334) { $err = trim($r); fclose($fp); return false; }
+    $send(base64_encode($cfg['smtp_pass'])); $r = $read(); if ($code($r) !== 235) { $err = 'auth: ' . trim($r); fclose($fp); return false; }
+
+    $from = $cfg['mail_from'];
+    $send('MAIL FROM:<' . $from . '>'); $r = $read(); if ($code($r) !== 250) { $err = trim($r); fclose($fp); return false; }
+    $send('RCPT TO:<' . $to . '>');     $r = $read(); if ($code($r) !== 250) { $err = trim($r); fclose($fp); return false; }
+    $send('DATA');                      $r = $read(); if ($code($r) !== 354) { $err = trim($r); fclose($fp); return false; }
+
+    $headers  = 'From: ' . mimeEncodeHeader($cfg['mail_from_name']) . ' <' . $from . ">\r\n";
+    $headers .= 'To: <' . $to . ">\r\n";
+    $headers .= 'Reply-To: ' . mimeEncodeHeader($replyToName) . ' <' . $replyToEmail . ">\r\n";
+    $headers .= 'Subject: ' . mimeEncodeHeader($subject) . "\r\n";
+    $headers .= 'Date: ' . date('r') . "\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $headers .= "Content-Transfer-Encoding: 8bit\r\n";
+
+    // Normaliza a CRLF y aplica "dot-stuffing" (líneas que empiezan por '.').
+    $payload = $headers . "\r\n" . $body;
+    $payload = str_replace("\r\n", "\n", $payload);
+    $payload = str_replace("\n", "\r\n", $payload);
+    $payload = preg_replace('/^\./m', '..', $payload);
+
+    fwrite($fp, $payload . "\r\n.\r\n");
+    $r = $read(); if ($code($r) !== 250) { $err = trim($r); fclose($fp); return false; }
+
+    $send('QUIT');
+    fclose($fp);
+    return true;
+}
