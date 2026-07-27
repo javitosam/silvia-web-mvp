@@ -813,3 +813,8 @@ footer{border-top:2px solid var(--green)}
 /* Enlace LinkedIn en las fichas del equipo */
 .member-li{display:inline-block;margin-top:8px;font-size:.82rem;font-weight:600;color:var(--green);text-decoration:none;letter-spacing:.02em}
 .member-li:hover{text-decoration:underline}
+
+/* TEMPORAL — ocultar el respaldo de ESA y UC3M (logos) por ahora.
+   Para restaurarlos, borra estas dos reglas. */
+.trust{display:none}
+.feat:has(.backers){display:none}
