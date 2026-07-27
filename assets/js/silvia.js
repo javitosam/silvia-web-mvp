@@ -53,6 +53,7 @@ document.documentElement.classList.add('js');
   var applyTheme = function (t) {
     root.setAttribute('data-theme', t);
     root.style.background = t === 'dark' ? '#0d1117' : '#ffffff';
+    root.style.colorScheme = t === 'dark' ? 'dark' : 'light';
     themeBtn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
     try { localStorage.setItem('theme', t); } catch (e) {}
   };
