@@ -1,0 +1,27 @@
+# SilvIA — URLs limpias (sin .html) + redirecciones 301 para conservar el SEO
+# Requiere Apache con mod_rewrite (habitual en Arsys).
+
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1) Quitar la barra final (excepto en directorios reales): /pagina/ -> /pagina
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+?)/$ /$1 [R=301,L]
+
+  # 2) La home siempre en "/": /index o /index.html -> /
+  RewriteCond %{THE_REQUEST} \s/+index(\.html)?[\s?] [NC]
+  RewriteRule ^ / [R=301,L]
+
+  # 3) Cualquier .html visible -> su versión sin extensión (301, conserva el SEO)
+  RewriteCond %{THE_REQUEST} \s/+([^?\s]+)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L]
+
+  # 4) Servir internamente el .html correspondiente a la URL limpia
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
