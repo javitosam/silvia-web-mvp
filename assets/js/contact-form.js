@@ -66,3 +66,30 @@
       });
   });
 })();
+
+/* Consentimiento del mapa: Google Maps no se carga hasta que el usuario lo pide.
+   Así la web no instala ninguna cookie de terceros por defecto. */
+(function () {
+  var frame = document.querySelector('.loc-map iframe[data-src]');
+  if (!frame) return;
+  var wrap = frame.closest('.loc-map');
+  var lang = (document.documentElement.getAttribute('lang') || 'es').slice(0, 2);
+  var T = {
+    es: { msg: 'Este mapa carga <b>Google Maps</b>, que puede instalar cookies de terceros.', btn: 'Ver el mapa', link: 'Política de cookies' },
+    en: { msg: 'This map loads <b>Google Maps</b>, which may set third-party cookies.', btn: 'Show the map', link: 'Cookie policy' },
+    pt: { msg: 'Este mapa carrega o <b>Google Maps</b>, que pode instalar cookies de terceiros.', btn: 'Ver o mapa', link: 'Política de cookies' },
+    fr: { msg: 'Cette carte charge <b>Google Maps</b>, qui peut déposer des cookies tiers.', btn: 'Voir la carte', link: 'Politique de cookies' }
+  };
+  var t = T[lang] || T.es;
+  var veil = document.createElement('div');
+  veil.className = 'map-consent';
+  veil.innerHTML = '<p>' + t.msg + '</p>' +
+    '<button class="btn btn-primary" type="button">' + t.btn + '</button>' +
+    '<a class="map-consent-link" href="politica-de-cookies">' + t.link + '</a>';
+  wrap.appendChild(veil);
+  veil.querySelector('button').addEventListener('click', function () {
+    frame.setAttribute('src', frame.getAttribute('data-src'));
+    wrap.classList.add('map-on');
+    veil.parentNode.removeChild(veil);
+  });
+})();
