@@ -852,3 +852,16 @@ footer{border-top:2px solid var(--green)}
 .map-consent p{color:var(--text);opacity:.85;max-width:34ch;font-size:.95rem;margin:0}
 .map-consent-link{font-size:.82rem;color:var(--green);text-decoration:none}
 .map-consent-link:hover{text-decoration:underline}
+
+/* ---------- BANNER DE COOKIES (Google Analytics) ---------- */
+.cookie-banner{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:1200;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center;
+  max-width:min(680px,calc(100vw - 32px));padding:16px 22px;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r-m);
+  box-shadow:0 14px 40px -18px rgba(26,32,44,.45)}
+.cookie-banner p{margin:0;color:var(--text);opacity:.9;font-size:.92rem;max-width:46ch}
+.cookie-banner p a{color:var(--green);text-decoration:none}
+.cookie-banner p a:hover{text-decoration:underline}
+.cookie-banner-actions{display:flex;gap:10px;flex-shrink:0}
+.cookie-banner-actions .btn{padding:9px 18px;font-size:.88rem}
+@media(max-width:560px){.cookie-banner{flex-direction:column;text-align:center;gap:12px}}
