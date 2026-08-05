@@ -1,37 +1,40 @@
-/* Google Analytics 4 con consentimiento previo (RGPD / LSSI art. 22.2).
-   El script de Google NO se carga y no se instala ninguna cookie hasta que
-   el usuario pulsa "Aceptar" en el banner. La elección se guarda en
-   localStorage y puede cambiarse desde cualquier enlace con
-   [data-cookie-settings] (p. ej. en la política de cookies). */
+﻿/* Consent Mode v2 + banner RGPD/LSSI.
+   GTM ya esta cargado en el <head>. Este script gestiona el consentimiento
+   mediante dataLayer y muestra el banner en la primera visita. */
 (function () {
-  var GA_ID = 'G-XXXXXXXXXX'; /* <-- Sustituir por el ID de medición real de GA4 */
   var KEY = 'silvia-consent-analytics';
 
-  /* Mientras no haya un ID real configurado, no se muestra banner ni se carga nada */
-  if (GA_ID === 'G-XXXXXXXXXX' || !/^G-[A-Z0-9]+$/.test(GA_ID)) return;
+  /* Consentimiento denegado por defecto para GTM Consent Mode v2 */
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    wait_for_update: 500
+  });
 
-  function loadGA() {
-    if (window.gtag) return;
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
-    window.gtag('config', GA_ID, { anonymize_ip: true });
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-    document.head.appendChild(s);
+  function updateConsent(value) {
+    var state = value === 'granted' ? 'granted' : 'denied';
+    gtag('consent', 'update', {
+      analytics_storage: state,
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
   }
 
   function save(value) {
-    try { localStorage.setItem(KEY, value); } catch (e) { /* modo privado */ }
+    try { localStorage.setItem(KEY, value); } catch (e) {}
   }
 
   var lang = (document.documentElement.getAttribute('lang') || 'es').slice(0, 2);
   var T = {
-    es: { msg: 'Usamos cookies analíticas (<b>Google Analytics</b>) para medir el uso de la web. Solo se instalan si las aceptas.', accept: 'Aceptar', reject: 'Rechazar', link: 'Política de cookies' },
+    es: { msg: 'Usamos cookies analiticas (<b>Google Analytics</b>) para medir el uso de la web. Solo se instalan si las aceptas.', accept: 'Aceptar', reject: 'Rechazar', link: 'Politica de cookies' },
     en: { msg: 'We use analytics cookies (<b>Google Analytics</b>) to measure how the site is used. They are only set if you accept.', accept: 'Accept', reject: 'Reject', link: 'Cookie policy' },
-    pt: { msg: 'Utilizamos cookies analíticos (<b>Google Analytics</b>) para medir a utilização do site. Só se instalam se os aceitar.', accept: 'Aceitar', reject: 'Rejeitar', link: 'Política de cookies' },
-    fr: { msg: 'Nous utilisons des cookies analytiques (<b>Google Analytics</b>) pour mesurer l’utilisation du site. Ils ne sont déposés que si vous acceptez.', accept: 'Accepter', reject: 'Refuser', link: 'Politique de cookies' }
+    pt: { msg: 'Utilizamos cookies analiticos (<b>Google Analytics</b>) para medir a utilizacao do site. So se instalam se os aceitar.', accept: 'Aceitar', reject: 'Rejeitar', link: 'Politica de cookies' },
+    fr: { msg: "Nous utilisons des cookies analytiques (<b>Google Analytics</b>) pour mesurer l'utilisation du site. Ils ne sont deposes que si vous acceptez.", accept: 'Accepter', reject: 'Refuser', link: 'Politique de cookies' }
   };
   var t = T[lang] || T.es;
 
@@ -52,18 +55,21 @@
       if (!btn) return;
       var value = btn.getAttribute('data-consent');
       save(value);
-      if (value === 'granted') loadGA();
+      updateConsent(value);
       box.parentNode.removeChild(box);
     });
     document.body.appendChild(box);
   }
 
   var choice = null;
-  try { choice = localStorage.getItem(KEY); } catch (e) { /* modo privado */ }
-  if (choice === 'granted') loadGA();
-  else if (choice !== 'denied') showBanner();
+  try { choice = localStorage.getItem(KEY); } catch (e) {}
+  if (choice) {
+    updateConsent(choice);
+  } else {
+    showBanner();
+  }
 
-  /* Reabrir el banner desde la política de cookies u otros enlaces */
+  /* Reabrir el banner desde la politica de cookies u otros enlaces */
   document.addEventListener('click', function (e) {
     var a = e.target.closest ? e.target.closest('[data-cookie-settings]') : null;
     if (!a) return;
