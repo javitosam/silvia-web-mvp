@@ -3,320 +3,320 @@
   <url>
     <loc>https://silviaearth.com/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/index-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/index-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/index-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/index-en</loc>
+    <loc>https://silviaearth.com/en/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/index-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/index-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/index-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/index-pt</loc>
+    <loc>https://silviaearth.com/pt/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/index-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/index-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/index-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/index-fr</loc>
+    <loc>https://silviaearth.com/fr/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/index-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/index-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/index-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://silviaearth.com/administraciones</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/administraciones"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/administraciones-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/administraciones-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/administraciones-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/public-sector"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/administracao-publica"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/administrations"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/administraciones"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/administraciones-en</loc>
+    <loc>https://silviaearth.com/en/public-sector</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/administraciones"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/administraciones-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/administraciones-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/administraciones-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/public-sector"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/administracao-publica"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/administrations"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/administraciones"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/administraciones-pt</loc>
+    <loc>https://silviaearth.com/pt/administracao-publica</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/administraciones"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/administraciones-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/administraciones-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/administraciones-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/public-sector"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/administracao-publica"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/administrations"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/administraciones"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/administraciones-fr</loc>
+    <loc>https://silviaearth.com/fr/administrations</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/administraciones"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/administraciones-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/administraciones-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/administraciones-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/public-sector"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/administracao-publica"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/administrations"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/administraciones"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://silviaearth.com/aseguradoras</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/aseguradoras"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/aseguradoras-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/aseguradoras-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/aseguradoras-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/insurers"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/seguradoras"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/assureurs"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/aseguradoras"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/aseguradoras-en</loc>
+    <loc>https://silviaearth.com/en/insurers</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/aseguradoras"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/aseguradoras-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/aseguradoras-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/aseguradoras-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/insurers"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/seguradoras"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/assureurs"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/aseguradoras"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/aseguradoras-pt</loc>
+    <loc>https://silviaearth.com/pt/seguradoras</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/aseguradoras"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/aseguradoras-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/aseguradoras-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/aseguradoras-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/insurers"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/seguradoras"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/assureurs"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/aseguradoras"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/aseguradoras-fr</loc>
+    <loc>https://silviaearth.com/fr/assureurs</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/aseguradoras"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/aseguradoras-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/aseguradoras-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/aseguradoras-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/insurers"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/seguradoras"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/assureurs"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/aseguradoras"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://silviaearth.com/empresas</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/empresas"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/empresas-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/empresas-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/empresas-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/companies"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/empresas"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/entreprises"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/empresas"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/empresas-en</loc>
+    <loc>https://silviaearth.com/en/companies</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/empresas"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/empresas-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/empresas-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/empresas-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/companies"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/empresas"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/entreprises"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/empresas"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/empresas-pt</loc>
+    <loc>https://silviaearth.com/pt/empresas</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/empresas"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/empresas-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/empresas-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/empresas-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/companies"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/empresas"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/entreprises"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/empresas"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/empresas-fr</loc>
+    <loc>https://silviaearth.com/fr/entreprises</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/empresas"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/empresas-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/empresas-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/empresas-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/companies"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/empresas"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/entreprises"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/empresas"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://silviaearth.com/plataforma</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/plataforma"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/plataforma-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/plataforma-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/plataforma-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/platform"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/plataforma"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/plateforme"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/plataforma"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/plataforma-en</loc>
+    <loc>https://silviaearth.com/en/platform</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/plataforma"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/plataforma-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/plataforma-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/plataforma-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/platform"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/plataforma"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/plateforme"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/plataforma"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/plataforma-pt</loc>
+    <loc>https://silviaearth.com/pt/plataforma</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/plataforma"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/plataforma-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/plataforma-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/plataforma-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/platform"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/plataforma"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/plateforme"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/plataforma"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/plataforma-fr</loc>
+    <loc>https://silviaearth.com/fr/plateforme</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/plataforma"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/plataforma-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/plataforma-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/plataforma-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/platform"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/plataforma"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/plateforme"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/plataforma"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://silviaearth.com/quienes-somos</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/quienes-somos"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/quienes-somos-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/quienes-somos-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/quienes-somos-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/quem-somos"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/a-propos"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/quienes-somos"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/quienes-somos-en</loc>
+    <loc>https://silviaearth.com/en/about</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/quienes-somos"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/quienes-somos-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/quienes-somos-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/quienes-somos-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/quem-somos"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/a-propos"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/quienes-somos"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/quienes-somos-pt</loc>
+    <loc>https://silviaearth.com/pt/quem-somos</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/quienes-somos"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/quienes-somos-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/quienes-somos-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/quienes-somos-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/quem-somos"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/a-propos"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/quienes-somos"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/quienes-somos-fr</loc>
+    <loc>https://silviaearth.com/fr/a-propos</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/quienes-somos"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/quienes-somos-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/quienes-somos-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/quienes-somos-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/quem-somos"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/a-propos"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/quienes-somos"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://silviaearth.com/contacto</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/contacto"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/contacto-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/contacto-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/contacto-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/contacto"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/contact"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/contacto"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/contacto-en</loc>
+    <loc>https://silviaearth.com/en/contact</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/contacto"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/contacto-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/contacto-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/contacto-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/contacto"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/contact"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/contacto"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/contacto-pt</loc>
+    <loc>https://silviaearth.com/pt/contacto</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/contacto"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/contacto-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/contacto-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/contacto-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/contacto"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/contact"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/contacto"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silviaearth.com/contacto-fr</loc>
+    <loc>https://silviaearth.com/fr/contact</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://silviaearth.com/contacto"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/contacto-en"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/contacto-pt"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/contacto-fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://silviaearth.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://silviaearth.com/pt/contacto"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://silviaearth.com/fr/contact"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://silviaearth.com/contacto"/>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://silviaearth.com/politica-de-privacidad</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://silviaearth.com/politica-de-cookies</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

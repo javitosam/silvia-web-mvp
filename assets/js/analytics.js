@@ -1,25 +1,18 @@
-/* Google Analytics 4 con consentimiento previo (RGPD / LSSI art. 22.2).
-   El script de Google NO se carga y no se instala ninguna cookie hasta que
-   el usuario pulsa "Aceptar" en el banner. La elección se guarda en
-   localStorage y puede cambiarse desde cualquier enlace con
-   [data-cookie-settings] (p. ej. en la política de cookies). */
+/* SilvIA — Consentimiento de cookies (RGPD / LSSI art. 22.2) con Google Consent Mode.
+   El consentimiento está DENEGADO por defecto (ver el snippet de Consent Mode en el
+   <head>, antes de Google Tag Manager). GTM y Google Analytics NO instalan cookies
+   de analítica hasta que el usuario pulsa "Aceptar" en el banner. La elección se
+   guarda en localStorage y puede cambiarse desde cualquier enlace [data-cookie-settings]
+   (por ejemplo, en la Política de cookies). */
 (function () {
-  var GA_ID = 'G-XXXXXXXXXX'; /* <-- Sustituir por el ID de medición real de GA4 */
   var KEY = 'silvia-consent-analytics';
 
-  /* Mientras no haya un ID real configurado, no se muestra banner ni se carga nada */
-  if (GA_ID === 'G-XXXXXXXXXX' || !/^G-[A-Z0-9]+$/.test(GA_ID)) return;
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
 
-  function loadGA() {
-    if (window.gtag) return;
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
-    window.gtag('config', GA_ID, { anonymize_ip: true });
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-    document.head.appendChild(s);
+  /* Concede el consentimiento de analítica a GTM/GA (Consent Mode) */
+  function grant() {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
   }
 
   function save(value) {
@@ -42,7 +35,7 @@
     box.setAttribute('role', 'dialog');
     box.setAttribute('aria-live', 'polite');
     box.innerHTML =
-      '<p>' + t.msg + ' <a href="politica-de-cookies">' + t.link + '</a></p>' +
+      '<p>' + t.msg + ' <a href="/politica-de-cookies">' + t.link + '</a></p>' +
       '<div class="cookie-banner-actions">' +
         '<button type="button" class="btn btn-primary" data-consent="granted">' + t.accept + '</button>' +
         '<button type="button" class="btn btn-ghost" data-consent="denied">' + t.reject + '</button>' +
@@ -52,7 +45,7 @@
       if (!btn) return;
       var value = btn.getAttribute('data-consent');
       save(value);
-      if (value === 'granted') loadGA();
+      if (value === 'granted') grant();
       box.parentNode.removeChild(box);
     });
     document.body.appendChild(box);
@@ -60,7 +53,7 @@
 
   var choice = null;
   try { choice = localStorage.getItem(KEY); } catch (e) { /* modo privado */ }
-  if (choice === 'granted') loadGA();
+  if (choice === 'granted') grant();
   else if (choice !== 'denied') showBanner();
 
   /* Reabrir el banner desde la política de cookies u otros enlaces */

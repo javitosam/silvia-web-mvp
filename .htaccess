@@ -1,4 +1,4 @@
-# SilvIA — URLs limpias (sin .html) + redirecciones 301 para conservar el SEO
+# SilvIA — URLs limpias y traducidas por idioma (/en/ /fr/ /pt/) + redirecciones 301.
 # Requiere Apache con mod_rewrite (habitual en Arsys).
 
 DirectoryIndex index.html
@@ -7,15 +7,51 @@ DirectoryIndex index.html
   RewriteEngine On
   RewriteBase /
 
+  # === Redirecciones 301 de estructuras ANTIGUAS ===
+
+  # Estructura muy antigua con /es/ (el español vive en la raíz)
+  RewriteRule ^es/methodology/?$ /plataforma [R=301,L]
+  RewriteRule ^es(/.*)?$ / [R=301,L]
+
+  # /idioma/methodology antiguo -> plataforma de ese idioma
+  RewriteRule ^en/methodology/?$ /en/platform [R=301,L]
+  RewriteRule ^fr/methodology/?$ /fr/plateforme [R=301,L]
+  RewriteRule ^pt/methodology/?$ /pt/plataforma [R=301,L]
+
+  # Estructura anterior (slug-en / slug-fr / slug-pt) -> nueva traducida en carpeta
+  RewriteRule ^index-en/?$ /en/ [R=301,L]
+  RewriteRule ^administraciones-en/?$ /en/public-sector [R=301,L]
+  RewriteRule ^aseguradoras-en/?$ /en/insurers [R=301,L]
+  RewriteRule ^empresas-en/?$ /en/companies [R=301,L]
+  RewriteRule ^plataforma-en/?$ /en/platform [R=301,L]
+  RewriteRule ^quienes-somos-en/?$ /en/about [R=301,L]
+  RewriteRule ^contacto-en/?$ /en/contact [R=301,L]
+  RewriteRule ^index-fr/?$ /fr/ [R=301,L]
+  RewriteRule ^administraciones-fr/?$ /fr/administrations [R=301,L]
+  RewriteRule ^aseguradoras-fr/?$ /fr/assureurs [R=301,L]
+  RewriteRule ^empresas-fr/?$ /fr/entreprises [R=301,L]
+  RewriteRule ^plataforma-fr/?$ /fr/plateforme [R=301,L]
+  RewriteRule ^quienes-somos-fr/?$ /fr/a-propos [R=301,L]
+  RewriteRule ^contacto-fr/?$ /fr/contact [R=301,L]
+  RewriteRule ^index-pt/?$ /pt/ [R=301,L]
+  RewriteRule ^administraciones-pt/?$ /pt/administracao-publica [R=301,L]
+  RewriteRule ^aseguradoras-pt/?$ /pt/seguradoras [R=301,L]
+  RewriteRule ^empresas-pt/?$ /pt/empresas [R=301,L]
+  RewriteRule ^plataforma-pt/?$ /pt/plataforma [R=301,L]
+  RewriteRule ^quienes-somos-pt/?$ /pt/quem-somos [R=301,L]
+  RewriteRule ^contacto-pt/?$ /pt/contacto [R=301,L]
+
+  # === URLs limpias (sin .html) ===
+
   # 1) Quitar la barra final (excepto en directorios reales): /pagina/ -> /pagina
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^(.+?)/$ /$1 [R=301,L]
 
-  # 2) La home siempre en "/": /index o /index.html -> /
+  # 2) La home en español siempre en "/": /index o /index.html -> /
   RewriteCond %{THE_REQUEST} \s/+index(\.html)?[\s?] [NC]
   RewriteRule ^ / [R=301,L]
 
-  # 3) Cualquier .html visible -> su versión sin extensión (301, conserva el SEO)
+  # 3) Cualquier .html visible -> su versión sin extensión (301)
   RewriteCond %{THE_REQUEST} \s/+([^?\s]+)\.html[\s?] [NC]
   RewriteRule ^ /%1 [R=301,L]
 
