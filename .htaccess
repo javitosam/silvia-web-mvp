@@ -7,6 +7,15 @@ DirectoryIndex index.html
   RewriteEngine On
   RewriteBase /
 
+  # 0) Redirecciones de la estructura ANTIGUA (/es/ /en/ /fr/ y /idioma/methodology)
+  #    a las URLs actuales. Deben ir ANTES de quitar la barra final.
+  RewriteRule ^es/methodology/?$ /plataforma [R=301,L]
+  RewriteRule ^en/methodology/?$ /plataforma-en [R=301,L]
+  RewriteRule ^fr/methodology/?$ /plataforma-fr [R=301,L]
+  RewriteRule ^es(/.*)?$ / [R=301,L]
+  RewriteRule ^en(/.*)?$ /index-en [R=301,L]
+  RewriteRule ^fr(/.*)?$ /index-fr [R=301,L]
+
   # 1) Quitar la barra final (excepto en directorios reales): /pagina/ -> /pagina
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^(.+?)/$ /$1 [R=301,L]
