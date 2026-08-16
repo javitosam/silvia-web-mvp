@@ -6,7 +6,7 @@
 
   var status = form.querySelector('.form-status');
   var submitBtn = form.querySelector('button[type="submit"]');
-  var endpoint = form.getAttribute('data-endpoint') || 'contact.php';
+  var endpoint = form.getAttribute('data-endpoint') || '/contact.php';
 
   var T = {
     sending: form.getAttribute('data-t-sending') || 'Enviando…',
@@ -85,7 +85,7 @@
   veil.className = 'map-consent';
   veil.innerHTML = '<p>' + t.msg + '</p>' +
     '<button class="btn btn-primary" type="button">' + t.btn + '</button>' +
-    '<a class="map-consent-link" href="politica-de-cookies">' + t.link + '</a>';
+    '<a class="map-consent-link" href="/politica-de-cookies">' + t.link + '</a>';
   wrap.appendChild(veil);
   veil.querySelector('button').addEventListener('click', function () {
     frame.setAttribute('src', frame.getAttribute('data-src'));

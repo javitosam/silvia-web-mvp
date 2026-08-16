@@ -35,7 +35,7 @@
     box.setAttribute('role', 'dialog');
     box.setAttribute('aria-live', 'polite');
     box.innerHTML =
-      '<p>' + t.msg + ' <a href="politica-de-cookies">' + t.link + '</a></p>' +
+      '<p>' + t.msg + ' <a href="/politica-de-cookies">' + t.link + '</a></p>' +
       '<div class="cookie-banner-actions">' +
         '<button type="button" class="btn btn-primary" data-consent="granted">' + t.accept + '</button>' +
         '<button type="button" class="btn btn-ghost" data-consent="denied">' + t.reject + '</button>' +
