@@ -865,3 +865,27 @@ footer{border-top:2px solid var(--green)}
 .cookie-banner-actions{display:flex;gap:10px;flex-shrink:0}
 .cookie-banner-actions .btn{padding:9px 18px;font-size:.88rem}
 @media(max-width:560px){.cookie-banner{flex-direction:column;text-align:center;gap:12px}}
+
+/* ===== Blog / Noticias ===== */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1120px;margin:0 auto}
+.post-card{display:flex;flex-direction:column;border:1px solid var(--border);border-top:2px solid var(--card-top);border-radius:var(--r-s);overflow:hidden;background:var(--surface);text-decoration:none;transition:transform .3s,box-shadow .3s,border-color .3s}
+.post-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lift);border-top-color:var(--green)}
+.post-thumb{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--ink);display:block}
+.post-body{display:flex;flex-direction:column;flex:1;padding:24px 24px 26px}
+.post-meta{font-family:var(--font-body);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:12px}
+.post-card h2{font-size:1.14rem;line-height:1.3;margin-bottom:10px;color:var(--text)}
+.post-card p{font-size:.9rem;line-height:1.6;color:var(--grey);flex:1;margin:0}
+.post-card .go{margin-top:22px;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.86rem;color:var(--green)}
+.post-card .go svg{transition:transform .3s}
+.post-card:hover .go svg{transform:translateX(5px)}
+@media(max-width:900px){.blog-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.blog-grid{grid-template-columns:1fr;max-width:460px}}
+
+/* Article */
+.article-figure{margin:0 0 30px}
+.article-figure img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r-s);background:var(--ink);display:block}
+.article-figure figcaption{font-size:.82rem;color:var(--grey);margin-top:10px}
+.legal-wrap .entradilla{font-size:1.1rem;line-height:1.66;color:var(--text);opacity:1;font-weight:500;margin-bottom:26px}
+.article-tags{margin-top:44px;padding-top:26px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:8px}
+.article-tags .tag{font-family:var(--font-body);font-size:.78rem;color:var(--grey);background:var(--surface-alt);border:1px solid var(--border);padding:5px 13px;border-radius:999px}
+.article-back-cta{margin-top:30px}
