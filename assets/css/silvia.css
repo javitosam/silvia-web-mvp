@@ -903,3 +903,10 @@ footer{border-top:2px solid var(--green)}
 /* Vídeo en artículos y tarjetas */
 .article-video{width:100%;height:auto;display:block;border-radius:var(--r-s);background:#000}
 video.post-thumb{background:#000}
+
+/* Botón "Ver en LinkedIn" */
+.article-back-cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn-linkedin{background:#0a66c2;color:#fff;display:inline-flex;align-items:center;gap:8px}
+.btn-linkedin:hover{background:#004182;transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(10,102,194,.6)}
+.legal-wrap .btn-linkedin,.legal-wrap .btn-linkedin:hover{color:#fff;border-color:transparent}
+.btn-linkedin svg{flex:none}
