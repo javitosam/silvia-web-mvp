@@ -910,3 +910,19 @@ video.post-thumb{background:#000}
 .btn-linkedin:hover{background:#004182;transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(10,102,194,.6)}
 .legal-wrap .btn-linkedin,.legal-wrap .btn-linkedin:hover{color:#fff;border-color:transparent}
 .btn-linkedin svg{flex:none}
+
+/* Desplegable "Blog" en la navegación */
+.nav-drop{position:relative}
+.nav-drop>a{display:inline-flex;align-items:center;gap:5px}
+.nav-caret{transition:transform .25s}
+.nav-drop:hover .nav-caret,.nav-drop:focus-within .nav-caret{transform:rotate(180deg)}
+.nav-submenu{list-style:none;margin:0;padding:12px 8px 8px;position:absolute;top:100%;left:-12px;min-width:252px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-m);box-shadow:0 20px 44px -22px rgba(0,0,0,.4);display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s,transform .2s,visibility .2s;z-index:130}
+.nav-drop:hover>.nav-submenu,.nav-drop:focus-within>.nav-submenu{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-submenu a{display:block;padding:10px 12px;border-radius:var(--r-s);font-size:.88rem;font-weight:500;color:var(--grey);white-space:nowrap}
+.nav-submenu a::after{display:none}
+.nav-submenu a:hover,.nav-submenu a[aria-current="page"]{background:var(--surface-alt);color:var(--text)}
+@media(max-width:960px){
+  nav.open .nav-submenu{position:static;opacity:1;visibility:visible;transform:none;display:flex;box-shadow:none;border:none;background:transparent;padding:4px 0 0 14px;min-width:0}
+  nav.open .nav-submenu a{padding:6px 0}
+  .nav-drop:hover .nav-caret,.nav-drop:focus-within .nav-caret{transform:none}
+}
