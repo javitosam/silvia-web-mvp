@@ -891,3 +891,11 @@ footer{border-top:2px solid var(--green)}
 .article-back-cta{margin-top:30px}
 .legal-wrap .btn{border-bottom:0}
 .legal-wrap .btn-primary,.legal-wrap .btn-primary:hover{color:#fff;border-color:transparent}
+
+/* Blog: pestañas de sección + estado vacío */
+.blog-tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:1120px;margin:0 auto 38px}
+.blog-tab{font-family:var(--font-body);font-size:.9rem;font-weight:600;text-decoration:none;color:var(--grey);padding:9px 18px;border:1px solid var(--border);border-radius:999px;transition:background .25s,color .25s,border-color .25s}
+.blog-tab:hover{color:var(--text);border-color:var(--text)}
+.blog-tab.is-active{background:var(--green);color:#fff;border-color:var(--green)}
+.blog-empty{max-width:620px;margin:24px auto 8px;text-align:center}
+.blog-empty p{color:var(--grey);line-height:1.7;margin-bottom:24px}
