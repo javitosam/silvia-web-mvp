@@ -51,7 +51,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="/empresas">Empresas y particulares</a></li>
     <li><a href="/plataforma">Plataforma</a></li>
     <li><a href="/quienes-somos">Quiénes somos</a></li>
-    <li><a href="/noticias/" aria-current="page">Blog</a></li>
+    <li class="nav-drop">
+      <a href="/noticias/" aria-current="page" aria-haspopup="true" aria-expanded="false">Blog <svg class="nav-caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+      <ul class="nav-submenu">
+        <li><a href="/noticias/">Noticias y eventos</a></li>
+        <li><a href="/novedades/">Novedades de la plataforma</a></li>
+      </ul>
+    </li>
     <li><a class="nav-cta" href="/contacto">Contacto</a></li>
   </ul>
   <button class="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -66,18 +72,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </header>
 
   <section class="legal">
-    <div class="blog-tabs" aria-label="Secciones del blog">
-      <a class="blog-tab is-active" href="/noticias/" aria-current="page">Noticias y eventos</a>
-      <a class="blog-tab" href="/novedades/">Novedades de la plataforma</a>
-    </div>
     <div class="blog-grid">
 
       <a class="post-card reveal" href="/noticias/silvia-seleccionada-incubacion-uc3m-c3n-ia">
         <img class="post-thumb" src="/assets/blog/silvia-uc3m-c3n-ia.jpg" alt="SilvIA, seleccionada para el programa de incubación del C3N-IA, Parque Científico de la UC3M" width="600" height="375" loading="lazy" decoding="async">
         <div class="post-body">
           <span class="post-meta">Hito · 9 sep 2026</span>
-          <h2>SilvIA, seleccionada para el programa de incubación de la Universidad Carlos III de Madrid</h2>
-          <p>Nuestras nuevas oficinas estarán en el C3N-IA, el Parque Científico de la UC3M, desde donde seguiremos desarrollando la plataforma.</p>
+          <h2>SilvIA Earth se incorpora al Parque Científico de la Universidad Carlos III de Madrid</h2>
+          <p>Desarrollaremos nuestra plataforma desde el C3N-IA, el Parque Científico de la UC3M, con acceso a su computación de alto rendimiento y a su ecosistema investigador.</p>
           <span class="go">Leer noticia <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </div>
       </a>
