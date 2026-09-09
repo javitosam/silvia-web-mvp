@@ -899,3 +899,7 @@ footer{border-top:2px solid var(--green)}
 .blog-tab.is-active{background:var(--green);color:#fff;border-color:var(--green)}
 .blog-empty{max-width:620px;margin:24px auto 8px;text-align:center}
 .blog-empty p{color:var(--grey);line-height:1.7;margin-bottom:24px}
+
+/* Vídeo en artículos y tarjetas */
+.article-video{width:100%;height:auto;display:block;border-radius:var(--r-s);background:#000}
+video.post-thumb{background:#000}
