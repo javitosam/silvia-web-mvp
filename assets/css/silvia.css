@@ -889,3 +889,5 @@ footer{border-top:2px solid var(--green)}
 .article-tags{margin-top:44px;padding-top:26px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:8px}
 .article-tags .tag{font-family:var(--font-body);font-size:.78rem;color:var(--grey);background:var(--surface-alt);border:1px solid var(--border);padding:5px 13px;border-radius:999px}
 .article-back-cta{margin-top:30px}
+.legal-wrap .btn{border-bottom:0}
+.legal-wrap .btn-primary,.legal-wrap .btn-primary:hover{color:#fff;border-color:transparent}
