@@ -922,6 +922,8 @@ video.post-thumb{background:#000}
 .nav-submenu a:hover,.nav-submenu a[aria-current="page"]{background:var(--surface-alt);color:var(--text)}
 @media(max-width:960px){
   .nav-submenu{position:static;transform:none;display:none;opacity:1;visibility:visible;box-shadow:none;border:none;background:transparent;padding:0;min-width:0}
+  /* anula el desplazamiento de escritorio (hover/focus) en móvil */
+  .nav-drop:hover>.nav-submenu,.nav-drop:focus-within>.nav-submenu{transform:none;display:none}
   nav.open .nav-drop.open>.nav-submenu{display:flex;padding:4px 0 6px 14px}
   nav.open .nav-submenu a{padding:7px 0}
   .nav-drop:hover .nav-caret,.nav-drop:focus-within .nav-caret{transform:none}
