@@ -11,6 +11,21 @@ document.documentElement.classList.add('js');
     });
   }
 
+  // Desplegable "Blog": en móvil el enlace padre abre/cierra el submenú
+  // (en escritorio navega y el submenú se muestra al pasar el ratón / con foco).
+  var isMobileNav = function () { return window.matchMedia('(max-width:960px)').matches; };
+  document.querySelectorAll('.nav-drop').forEach(function (drop) {
+    var link = drop.querySelector('a');
+    if (!link) return;
+    link.addEventListener('click', function (e) {
+      if (isMobileNav()) {
+        e.preventDefault();
+        var open = drop.classList.toggle('open');
+        link.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+    });
+  });
+
   // Barra de progreso de scroll (verde, fija arriba)
   var scrollbar = document.getElementById('scrollbar');
   if (!scrollbar && !reduced) {
