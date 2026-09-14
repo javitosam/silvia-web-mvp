@@ -814,9 +814,10 @@ footer{border-top:2px solid var(--green)}
 .member-li{display:inline-block;margin-top:8px;font-size:.82rem;font-weight:600;color:var(--green);text-decoration:none;letter-spacing:.02em}
 .member-li:hover{text-decoration:underline}
 
-/* TEMPORAL — ocultar solo la insignia de la ESA (se mantiene UC3M).
-   Para restaurarla, borra esta regla. */
+/* TEMPORAL — ocultar la ESA (se mantiene UC3M). Para restaurarla, borra estas reglas. */
 .trust-badge:has(.esa-logo){display:none}
+.backers .feat-card:has(.esa-logo){display:none}
+.backers{grid-template-columns:minmax(0,560px);justify-content:center}
 
 /* ---- Páginas legales (privacidad / cookies) ---- */
 .legal{padding:64px 5vw 96px}
