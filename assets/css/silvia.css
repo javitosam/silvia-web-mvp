@@ -930,3 +930,9 @@ video.post-thumb{background:#000}
   .nav-drop:hover .nav-caret,.nav-drop:focus-within .nav-caret{transform:none}
   nav.open .nav-drop.open .nav-caret{transform:rotate(180deg)}
 }
+
+/* Galería de imágenes en artículos */
+.article-gallery{margin:34px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.article-gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r-s);background:var(--ink);display:block}
+.article-gallery figcaption{grid-column:1/-1;font-size:.82rem;color:var(--grey);margin-top:4px}
+@media(max-width:600px){.article-gallery{grid-template-columns:1fr 1fr}}
