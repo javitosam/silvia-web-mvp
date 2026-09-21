@@ -61,12 +61,18 @@ function field($data, $key) {
 }
 
 $name         = field($data, 'name');
+$lastname     = field($data, 'lastname');
 $email        = field($data, 'email');
+$phone        = field($data, 'phone');
 $organization = field($data, 'organization');
 $sector       = field($data, 'sector');
+$country      = field($data, 'country');
+$city         = field($data, 'city');
+$area         = field($data, 'area');
 $territory    = field($data, 'territory');
 $message      = field($data, 'message');
 $honeypot     = field($data, 'company_website');
+$fullName     = trim($name . ' ' . $lastname);
 $lang         = substr(field($data, 'lang'), 0, 2);
 
 /* --- Anti-spam: honeypot. Si viene relleno, fingimos éxito y no enviamos. --- */
@@ -99,7 +105,7 @@ if ($name === '') {
 if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     respond(false, 'Email no válido.', 400);
 }
-if ($message === '' && $territory === '') {
+if ($message === '' && $city === '' && $area === '' && $territory === '') {
     respond(false, 'Cuéntanos algo: un mensaje o tu territorio.', 400);
 }
 
@@ -108,17 +114,20 @@ function oneLine($s) {
     return trim(str_replace(array("\r", "\n"), ' ', $s));
 }
 $safeEmail = oneLine($email);
-$safeName  = oneLine($name);
+$safeName  = oneLine($fullName !== '' ? $fullName : $name);
 
 /* --- Componer el correo (texto plano, UTF-8) --- */
 $bodyLines = array(
     'Nuevo mensaje desde el formulario de contacto de la web.',
     '',
-    'Nombre:        ' . $name,
+    'Nombre:        ' . ($fullName !== '' ? $fullName : $name),
     'Email:         ' . $email,
+    'Teléfono:      ' . ($phone !== '' ? $phone : '(sin especificar)'),
     'Organización:  ' . ($organization !== '' ? $organization : '(sin especificar)'),
     'Sector:        ' . ($sector !== '' ? $sector : '(sin especificar)'),
-    'Territorio:    ' . ($territory !== '' ? $territory : '(sin especificar)'),
+    'País:          ' . ($country !== '' ? $country : '(sin especificar)'),
+    'Ciudad:        ' . ($city !== '' ? $city : '(sin especificar)'),
+    'Extensión:     ' . ($area !== '' ? $area : ($territory !== '' ? $territory : '(sin especificar)')),
     'Idioma web:    ' . ($lang !== '' ? $lang : 'es'),
     '',
     'Mensaje:',

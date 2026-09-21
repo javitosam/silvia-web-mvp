@@ -27,16 +27,20 @@
 
     var data = {
       name: (form.name && form.name.value || '').trim(),
+      lastname: (form.lastname && form.lastname.value || '').trim(),
       email: (form.email && form.email.value || '').trim(),
+      phone: (form.phone && form.phone.value || '').trim(),
       organization: (form.organization && form.organization.value || '').trim(),
       sector: (form.sector && form.sector.value || '').trim(),
-      territory: (form.territory && form.territory.value || '').trim(),
+      country: (form.country && form.country.value || '').trim(),
+      city: (form.city && form.city.value || '').trim(),
+      area: (form.area && form.area.value || '').trim(),
       message: (form.message && form.message.value || '').trim(),
       company_website: (form.company_website && form.company_website.value || ''), // honeypot
       lang: (document.documentElement.getAttribute('lang') || 'es').slice(0, 2)
     };
 
-    if (!data.name || !data.email || (!data.message && !data.territory)) {
+    if (!data.name || !data.email || (!data.message && !data.city && !data.area)) {
       setStatus(T.err, 'error');
       return;
     }
