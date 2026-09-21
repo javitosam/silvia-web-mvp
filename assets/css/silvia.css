@@ -63,8 +63,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   transform:translateY(-100%);animation:navDrop .8s cubic-bezier(.2,.7,.2,1) .15s forwards}
 @keyframes navDrop{to{transform:translateY(0)}}
 .logo{display:flex;align-items:center;gap:9px;text-decoration:none;cursor:pointer}
-.logo .logo-mark{height:30px;width:auto;display:block;transition:height .35s cubic-bezier(.2,.7,.2,1)}
-.js nav.scrolled .logo .logo-mark{height:27px}
+.logo .logo-mark{height:36px;width:auto;display:block;transition:height .35s cubic-bezier(.2,.7,.2,1)}
+.js nav.scrolled .logo .logo-mark{height:32px}
 .logo .logo-dark{display:none}
 [data-theme="dark"] .logo .logo-light{display:none}
 [data-theme="dark"] .logo .logo-dark{display:block}
@@ -141,8 +141,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   radial-gradient(130% 95% at 100% 100%,rgba(12,28,20,.52) 0%,rgba(12,28,20,0) 50%),
   linear-gradient(90deg,#fff 0%,rgba(255,255,255,.9) 6%,rgba(255,255,255,.56) 22%,rgba(255,255,255,.3) 40%,rgba(255,255,255,.1) 60%,rgba(255,255,255,0) 80%)}
 .hero-sat-cap{position:absolute;right:18px;bottom:16px;z-index:1;display:flex;flex-direction:column;align-items:flex-end;gap:1px;text-align:right}
-.hero-sat-cap b{font-family:var(--font-head);font-weight:500;font-size:.86rem;letter-spacing:.005em;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.55),0 1px 16px rgba(0,0,0,.35)}
-.hero-sat-cap span{font-family:var(--font-body);font-size:.6rem;letter-spacing:.05em;color:rgba(255,255,255,.82);text-shadow:0 1px 3px rgba(0,0,0,.5),0 1px 10px rgba(0,0,0,.3)}
+.hero-sat-cap b{font-family:var(--font-head);font-weight:500;font-size:1rem;letter-spacing:.005em;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.55),0 1px 16px rgba(0,0,0,.35)}
+.hero-sat-cap span{font-family:var(--font-body);font-size:.72rem;letter-spacing:.05em;color:rgba(255,255,255,.82);text-shadow:0 1px 3px rgba(0,0,0,.5),0 1px 10px rgba(0,0,0,.3)}
 @media(max-width:1150px){
   .hero-sat{display:none}
 }
@@ -171,9 +171,11 @@ section{padding:120px 5vw;position:relative}
 .reveal.in .spark-line,.core-fig.in .spark-line{stroke-dashoffset:0}
 
 /* ---------- PILARES (portada, claro) ---------- */
-.pillars-head{max-width:880px;margin-bottom:70px}
+.pillars{padding-bottom:88px}
+.pillars-head{max-width:880px;margin-bottom:82px}
 .pillars-head h2{font-size:var(--h2-md);line-height:1.22;font-weight:500}
 .pillars-head h2 .hl{color:var(--green)}
+.pillars-head p{margin-top:22px;font-size:1.05rem;line-height:1.6;color:var(--grey);max-width:60ch}
 .pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:40px}
 .pillar{border-left:1px solid var(--mist);padding-left:24px;text-decoration:none;display:block;transition:border-color .3s}
 .pillar:hover{border-color:var(--green)}
@@ -188,6 +190,7 @@ section{padding:120px 5vw;position:relative}
 .core-links a:hover svg,.pillars-more a:hover svg{transform:translateX(5px)}
 
 /* ---------- AUDIENCIAS ---------- */
+.aud{padding-top:96px}
 .aud-head{max-width:800px;margin-bottom:64px}
 .aud h2{font-size:var(--h2-lg);line-height:1.1}
 .aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -218,11 +221,18 @@ section{padding:120px 5vw;position:relative}
 .member p{font-size:.85rem;color:var(--grey);margin-top:6px;line-height:1.45}
 
 /* ---------- CTA ---------- */
-.cta{background:var(--green);color:#fff;text-align:center;overflow:hidden}
+.cta{background:var(--ink);color:#fff;text-align:center;overflow:hidden}
 .cta::before{content:'';position:absolute;inset:0;background-image:var(--contour-light);background-size:130% auto;background-repeat:no-repeat;background-position:center;pointer-events:none}
 .cta h2{font-size:var(--h2-lg);max-width:20ch;margin:0 auto 22px;line-height:1.12;position:relative}
 .cta p{max-width:46ch;margin:0 auto 38px;opacity:.92;line-height:1.6;position:relative}
 .cta .reveal{position:relative}
+/* Curvas de nivel animadas: deriva lenta y continua */
+.cta::before{animation:ctaContours 34s ease-in-out infinite alternate;will-change:background-position,transform}
+@keyframes ctaContours{
+  from{background-position:42% 46%;transform:scale(1)}
+  to{background-position:58% 54%;transform:scale(1.05)}
+}
+@media(prefers-reduced-motion:reduce){.cta::before{animation:none}}
 
 /* ---------- SUB-HERO (páginas interiores) ---------- */
 .sub-hero{padding:100px 5vw 56px 8.5vw;position:relative;overflow:hidden;color:#fff}
@@ -259,7 +269,7 @@ section{padding:120px 5vw;position:relative}
 .feat.tint .feat-card{background:var(--surface)}
 .backers .feat-card::before{content:none}
 .backer-logo{align-self:flex-start;width:auto;height:34px;background:#fff;padding:14px 20px;border-radius:12px;box-sizing:content-box;margin-bottom:22px}
-.backer-logo.uc-logo{height:46px}
+.backer-logo.uc-logo{height:74px;background:none;padding:0;border-radius:0;box-shadow:none}
 
 /* ---------- PASOS NUMERADOS ---------- */
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px;counter-reset:paso;margin-top:56px}
@@ -267,6 +277,40 @@ section{padding:120px 5vw;position:relative}
 .step::before{content:counter(paso,decimal-leading-zero);display:block;font-family:var(--font-mono);font-size:.8rem;font-weight:600;color:var(--green);margin-bottom:16px}
 .step h3{font-size:1.06rem;margin-bottom:8px}
 .step p{font-size:.92rem;line-height:1.6;color:var(--grey)}
+
+/* ---------- INTEGRA: dos columnas + timeline numerada ---------- */
+.integra-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:64px;align-items:start}
+.integra-aside{position:sticky;top:104px}
+.integra-aside h2{font-size:var(--h2-md);line-height:1.12}
+.integra-aside>p{margin-top:18px;font-size:1.05rem;line-height:1.6;color:var(--grey);max-width:46ch}
+.integra-mock{position:relative;margin-top:34px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-m);padding:20px;color:var(--green);box-shadow:0 24px 50px -34px rgba(26,32,44,.4)}
+.integra-mock-map{display:block;width:100%;height:auto;border-radius:6px}
+.integra-chip{position:absolute;top:38%;right:26px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:9px 13px;box-shadow:0 12px 26px -18px rgba(26,32,44,.55);line-height:1.35}
+.integra-chip-label{display:block;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute)}
+.integra-chip-meta{display:block;font-size:.82rem;font-weight:600;color:var(--text)}
+.integra-mock-foot{display:flex;align-items:center;gap:9px;margin-top:16px;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mute)}
+.integra-mock-foot .im-dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+.integra-steps{list-style:none;counter-reset:none;margin:0;padding:0}
+.istep{position:relative;display:grid;grid-template-columns:56px 1fr;gap:22px;padding-bottom:34px}
+.istep::before{content:'';position:absolute;left:27px;top:52px;bottom:-6px;width:2px;background:var(--border)}
+.istep:last-child{padding-bottom:0}
+.istep:last-child::before{display:none}
+.istep-num{grid-row:1/3;width:54px;height:54px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:.9rem;font-weight:600;color:var(--text-mute);background:var(--surface)}
+.istep.is-active .istep-num{background:var(--green);border-color:var(--green);color:#fff}
+.istep-eyebrow{display:block;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+.istep-body h3{font-size:1.18rem;margin-bottom:8px}
+.istep-body p{font-size:.94rem;line-height:1.62;color:var(--grey);max-width:52ch}
+@media(max-width:860px){
+  .integra-grid{grid-template-columns:1fr;gap:40px}
+  .integra-aside{position:static}
+  .integra-mock{max-width:440px}
+}
+@media(max-width:520px){
+  .istep{grid-template-columns:44px 1fr;gap:16px}
+  .istep::before{left:21px}
+  .istep-num{width:42px;height:42px;font-size:.8rem}
+  .integra-chip{right:16px;top:34%}
+}
 
 /* ---------- CASO / CITA ---------- */
 .case{padding:0 5vw 110px;background:var(--page-bg)}
@@ -316,7 +360,7 @@ table.compare{width:100%;border-collapse:collapse;font-size:.92rem;min-width:560
 /* ---------- FOOTER ---------- */
 footer{background:var(--black);color:var(--steel);padding:60px 5vw 38px;font-size:.9rem}
 .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)}
-.foot-logo{height:34px;width:auto;display:block;margin-bottom:16px;filter:brightness(0) invert(1)}
+.foot-logo{height:42px;width:auto;display:block;margin-bottom:16px;filter:brightness(0) invert(1)}
 .foot-tagline{max-width:32ch;margin-top:2px;line-height:1.6}
 .foot-links{display:flex;gap:56px;flex-wrap:wrap}
 .foot-links h4{color:#fff;font-size:.84rem;margin-bottom:14px;letter-spacing:.04em}
@@ -451,7 +495,7 @@ p,.lede{text-wrap:pretty}
 /* Profundidad en los bloques oscuros: luz radial + grano + retícula */
 .core{background:radial-gradient(130% 100% at 10% 0%,#134e30 0%,var(--ink) 58%)}
 .sub-hero.ink{background:radial-gradient(130% 100% at 10% 0%,#134e30 0%,var(--ink) 62%)}
-.cta{background:radial-gradient(130% 115% at 14% 0%,#41b078 0%,var(--green) 58%)}
+.cta{background:radial-gradient(120% 130% at 50% -12%,#1a6b3f 0%,#124e2e 34%,var(--ink) 68%)}
 .case-quote{background:radial-gradient(130% 115% at 12% 0%,#134e30 0%,var(--ink) 62%)}
 .sub-hero::after,.core::after,.cta::after,.case-quote::after{content:'';position:absolute;inset:0;pointer-events:none;
   background-image:var(--noise),
@@ -630,8 +674,10 @@ footer{border-top:2px solid var(--green)}
 .trust-badge:hover{opacity:1;transform:translateY(-2px)}
 .trust-badge img{width:auto;display:block;background:#fff;padding:14px 22px;border-radius:12px;box-sizing:content-box;box-shadow:0 6px 20px -10px rgba(0,0,0,.28)}
 .trust-badge .esa-logo{height:40px}
-.trust-badge .uc-logo{height:44px}
+.trust-badge .uc-logo{height:62px;background:none;padding:0;border-radius:0;box-shadow:none}
 .trust-badge .trust-cap{font-size:.76rem;color:var(--steel);letter-spacing:.01em;text-align:center}
+/* Logo UC3M: azul de marca en claro, blanco en oscuro (sin pastilla) */
+[data-theme="dark"] .uc-logo{filter:brightness(0) invert(1)}
 
 /* ============================================================
    TEMA OSCURO — ajustes específicos
