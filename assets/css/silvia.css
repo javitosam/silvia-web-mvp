@@ -580,7 +580,7 @@ footer{border-top:2px solid var(--green)}
 /* ============================================================
    COMPOSICIÓN v2.4 — capacidades editoriales, fuera la retícula de clones
    2 columnas asimétricas; conteo impar cierra con banda horizontal.
-   5 → 2+2+banda · 6 → 3×2 · 3 → 2+banda · 2 → par asimétrico
+   5 → 2+2+banda, 6 → 3×2, 3 → 2+banda, 2 → par asimétrico
    ============================================================ */
 .feat-grid{grid-template-columns:repeat(2,1fr);gap:20px}
 .feat-card{padding:34px 32px}
@@ -657,7 +657,7 @@ footer{border-top:2px solid var(--green)}
 }
 
 /* ============================================================
-   COLABORACIONES / APOYO INSTITUCIONAL (ESA · UC3M)
+   COLABORACIONES / APOYO INSTITUCIONAL (ESA, UC3M)
    ============================================================ */
 .trust{padding:52px 5vw;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface-soft)}
 .trust-inner{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px}
