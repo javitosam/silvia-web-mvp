@@ -129,29 +129,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="feat tint">
-    <div class="feat-head">
-      <span class="section-label reveal">Cómo se integra</span>
-      <h2 class="reveal d1">Se suma a tu operativa. No la sustituye.</h2>
-      <p class="reveal d2">SilvIA Earth no reemplaza el criterio de tus técnicos ni los sistemas oficiales de alerta. Añade una capa de anticipación sobre lo que ya funciona.</p>
-    </div>
-    <div class="steps">
-      <div class="step reveal d1">
-        <h3>Tú marcas el territorio</h3>
-        <p>Contigo: montes de utilidad pública, espacios protegidos, zonas de interfaz urbano-forestal, cuencas prioritarias. Tú marcas dónde mirar.</p>
+  <section class="feat tint integra">
+    <div class="integra-grid">
+      <div class="integra-aside">
+        <span class="section-label reveal">Cómo se integra</span>
+        <h2 class="reveal d1">Se suma a tu operativa. No la sustituye.</h2>
+        <p class="reveal d2">SilvIA Earth no reemplaza el criterio de tus técnicos ni los sistemas oficiales de alerta. Añade una capa de anticipación sobre lo que ya funciona.</p>
+        <div class="integra-mock reveal d3" aria-hidden="true">
+          <svg class="integra-mock-map" viewBox="0 0 320 190" role="presentation" focusable="false">
+            <defs>
+              <pattern id="imDots" width="16" height="16" patternUnits="userSpaceOnUse">
+                <circle cx="1.4" cy="1.4" r="1.4" fill="currentColor" opacity=".22"/>
+              </pattern>
+            </defs>
+            <rect x="0" y="0" width="320" height="190" fill="url(#imDots)"/>
+            <path d="M54 40 L214 30 L268 96 L210 158 L96 164 L44 108 Z" fill="rgba(63,184,131,.06)" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 5" opacity=".7"/>
+            <circle cx="120" cy="78" r="5.5" fill="#e05a4d"/>
+            <circle cx="120" cy="78" r="11" fill="none" stroke="#e05a4d" stroke-width="1.4" opacity=".5"/>
+            <circle cx="170" cy="122" r="5" fill="#e6a23c"/>
+            <circle cx="90" cy="128" r="4.5" fill="#3fb883"/>
+            <circle cx="210" cy="70" r="4.5" fill="#3fb883"/>
+          </svg>
+          <div class="integra-chip">
+            <span class="integra-chip-label">Señal prioritaria</span>
+            <span class="integra-chip-meta">Severidad alta · conf. 0,86</span>
+          </div>
+          <div class="integra-mock-foot"><span class="im-dot"></span>Prioridades con confianza explícita</div>
+        </div>
       </div>
-      <div class="step reveal d2">
-        <h3>Tu zona de interés bajo vigilancia</h3>
-        <p>Observación permanente de esas áreas durante toda la temporada, combinando distintos sensores para que ni la noche ni la nubosidad dejen huecos.</p>
-      </div>
-      <div class="step reveal d3">
-        <h3>Recibes alertas ya priorizadas</h3>
-        <p>Cada señal llega con severidad y nivel de confianza explícitos. Sin avisos ciegos ni falsas urgencias que quemen la credibilidad del sistema ante tus equipos.</p>
-      </div>
-      <div class="step reveal d4">
-        <h3>Tu equipo decide</h3>
-        <p>La verificación y la actuación sobre el terreno siguen siendo tuyas. SilvIA aporta la evidencia: qué se ha visto, con qué sensor y con qué certeza, más recomendaciones. No la orden.</p>
-      </div>
+      <ol class="integra-steps">
+        <li class="istep reveal d1">
+          <span class="istep-num">01</span>
+          <div class="istep-body">
+            <span class="istep-eyebrow">Paso 01</span>
+            <h3>Tú marcas el territorio</h3>
+            <p>Contigo: montes de utilidad pública, espacios protegidos, zonas de interfaz urbano-forestal, cuencas prioritarias. Tú marcas dónde mirar.</p>
+          </div>
+        </li>
+        <li class="istep reveal d2">
+          <span class="istep-num">02</span>
+          <div class="istep-body">
+            <span class="istep-eyebrow">Paso 02</span>
+            <h3>Tu zona de interés bajo vigilancia</h3>
+            <p>Observación permanente de esas áreas durante toda la temporada, combinando distintos sensores para que ni la noche ni la nubosidad dejen huecos.</p>
+          </div>
+        </li>
+        <li class="istep is-active reveal d3">
+          <span class="istep-num">03</span>
+          <div class="istep-body">
+            <span class="istep-eyebrow">Paso 03</span>
+            <h3>Recibes alertas ya priorizadas</h3>
+            <p>Cada señal llega con severidad y nivel de confianza explícitos. Sin avisos ciegos ni falsas urgencias que quemen la credibilidad del sistema ante tus equipos.</p>
+          </div>
+        </li>
+        <li class="istep reveal d4">
+          <span class="istep-num">04</span>
+          <div class="istep-body">
+            <span class="istep-eyebrow">Paso 04</span>
+            <h3>Tu equipo decide</h3>
+            <p>La verificación y la actuación sobre el terreno siguen siendo tuyas. SilvIA aporta la evidencia: qué se ha visto, con qué sensor y con qué certeza, más recomendaciones. No la orden.</p>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -174,7 +213,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="feat-grid faq">
       <div class="feat-card reveal d1">
         <h3>¿En qué se diferencia de EFFIS o de los índices oficiales de peligro?</h3>
-        <p>Los índices oficiales indican el nivel de peligro meteorológico a escala provincial o regional. SilvIA trabaja a escala operativa: ordena las zonas concretas de tu territorio por probabilidad de ignición, para decidir dónde actuar primero. Son complementarios, no excluyentes.</p>
+        <p>Los índices oficiales indican el nivel de peligro meteorológico a escala provincial o regional. SilvIA trabaja a escala operativa: añade el estado de la vegetación y las características del terreno, y ordena las zonas concretas de tu territorio por probabilidad de ignición, para decidir dónde actuar primero. Son herramientas complementarias.</p>
       </div>
       <div class="feat-card reveal d2">
         <h3>¿Sustituye a nuestros sistemas de alerta actuales?</h3>
