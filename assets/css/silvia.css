@@ -226,13 +226,6 @@ section{padding:120px 5vw;position:relative}
 .cta h2{font-size:var(--h2-lg);max-width:20ch;margin:0 auto 22px;line-height:1.12;position:relative}
 .cta p{max-width:46ch;margin:0 auto 38px;opacity:.92;line-height:1.6;position:relative}
 .cta .reveal{position:relative}
-/* Curvas de nivel animadas: deriva lenta y continua */
-.cta::before{animation:ctaContours 34s ease-in-out infinite alternate;will-change:background-position,transform}
-@keyframes ctaContours{
-  from{background-position:42% 46%;transform:scale(1)}
-  to{background-position:58% 54%;transform:scale(1.05)}
-}
-@media(prefers-reduced-motion:reduce){.cta::before{animation:none}}
 
 /* ---------- SUB-HERO (páginas interiores) ---------- */
 .sub-hero{padding:100px 5vw 56px 8.5vw;position:relative;overflow:hidden;color:#fff}
@@ -982,3 +975,22 @@ video.post-thumb{background:#000}
 .article-gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r-s);background:var(--ink);display:block}
 .article-gallery figcaption{grid-column:1/-1;font-size:.82rem;color:var(--grey);margin-top:4px}
 @media(max-width:600px){.article-gallery{grid-template-columns:1fr 1fr}}
+
+/* ---------- CURVAS DE NIVEL: entrada en ola al aparecer la sección ---------- */
+.js :is(.hero,.core,.cta,.sub-hero,.case-quote)::before{opacity:0;will-change:transform,opacity}
+.js :is(.hero,.core,.cta,.sub-hero,.case-quote).contours-in::before{
+  animation:contourWaveIn 1.5s cubic-bezier(.22,.9,.28,1) forwards}
+@keyframes contourWaveIn{
+  0%{opacity:0;transform:translate3d(-9%,14px,0) scaleY(1.07)}
+  55%{opacity:1}
+  100%{opacity:1;transform:translate3d(0,0,0) scaleY(1)}
+}
+[data-theme="dark"] .js .hero.contours-in::before,.js[data-theme="dark"] .hero.contours-in::before{animation-name:contourWaveInHero}
+@keyframes contourWaveInHero{
+  0%{opacity:0;transform:translate3d(-9%,14px,0) scaleY(1.07)}
+  55%{opacity:.9}
+  100%{opacity:.9;transform:translate3d(0,0,0) scaleY(1)}
+}
+@media(prefers-reduced-motion:reduce){
+  .js :is(.hero,.core,.cta,.sub-hero,.case-quote)::before{opacity:1;animation:none!important;transform:none}
+}

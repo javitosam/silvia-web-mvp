@@ -152,6 +152,14 @@ document.documentElement.classList.add('js');
   }, { threshold: 0.16 });
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
 
+  // Curvas de nivel: entran como una ola cuando la sección aparece
+  var cio = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('contours-in'); cio.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.hero, .core, .cta, .sub-hero, .case-quote').forEach(function (el) { cio.observe(el); });
+
   // Texto rotatorio del hero (máquina de escribir)
   var tw = document.querySelector('.type-word[data-words]');
   if (tw) {
