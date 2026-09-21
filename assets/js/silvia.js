@@ -107,7 +107,7 @@ document.documentElement.classList.add('js');
         '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>' +
       '</button>' +
       '<div class="lang-menu" role="menu">' +
-        '<span class="lang-head">Idioma · Language</span>' +
+        '<span class="lang-head">Idioma, Language</span>' +
         langs.map(opt).join('') +
       '</div>';
 
@@ -151,6 +151,14 @@ document.documentElement.classList.add('js');
     });
   }, { threshold: 0.16 });
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+  // Curvas de nivel: entran como una ola cuando la sección aparece
+  var cio = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('contours-in'); cio.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.hero, .core, .cta, .sub-hero, .case-quote').forEach(function (el) { cio.observe(el); });
 
   // Texto rotatorio del hero (máquina de escribir)
   var tw = document.querySelector('.type-word[data-words]');
