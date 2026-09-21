@@ -63,8 +63,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   transform:translateY(-100%);animation:navDrop .8s cubic-bezier(.2,.7,.2,1) .15s forwards}
 @keyframes navDrop{to{transform:translateY(0)}}
 .logo{display:flex;align-items:center;gap:9px;text-decoration:none;cursor:pointer}
-.logo .logo-mark{height:30px;width:auto;display:block;transition:height .35s cubic-bezier(.2,.7,.2,1)}
-.js nav.scrolled .logo .logo-mark{height:27px}
+.logo .logo-mark{height:36px;width:auto;display:block;transition:height .35s cubic-bezier(.2,.7,.2,1)}
+.js nav.scrolled .logo .logo-mark{height:32px}
 .logo .logo-dark{display:none}
 [data-theme="dark"] .logo .logo-light{display:none}
 [data-theme="dark"] .logo .logo-dark{display:block}
@@ -353,7 +353,7 @@ table.compare{width:100%;border-collapse:collapse;font-size:.92rem;min-width:560
 /* ---------- FOOTER ---------- */
 footer{background:var(--black);color:var(--steel);padding:60px 5vw 38px;font-size:.9rem}
 .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)}
-.foot-logo{height:34px;width:auto;display:block;margin-bottom:16px;filter:brightness(0) invert(1)}
+.foot-logo{height:42px;width:auto;display:block;margin-bottom:16px;filter:brightness(0) invert(1)}
 .foot-tagline{max-width:32ch;margin-top:2px;line-height:1.6}
 .foot-links{display:flex;gap:56px;flex-wrap:wrap}
 .foot-links h4{color:#fff;font-size:.84rem;margin-bottom:14px;letter-spacing:.04em}
