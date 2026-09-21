@@ -90,7 +90,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 /* ---------- HERO (portada) ---------- */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 5vw 72px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background-image:var(--contour-green);background-size:150% auto;background-repeat:no-repeat;background-position:left center;pointer-events:none;opacity:1;
+.hero::before{content:'';position:absolute;inset:0;background-image:var(--contour-green);background-size:215% auto;background-repeat:no-repeat;background-position:left center;pointer-events:none;opacity:1;
   -webkit-mask-image:linear-gradient(90deg,#000 24%,transparent 52%);mask-image:linear-gradient(90deg,#000 24%,transparent 52%)}
 .hero-copy{position:relative;z-index:1}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-body);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);font-weight:600;margin-bottom:26px}
@@ -154,7 +154,7 @@ section{padding:120px 5vw;position:relative}
 
 /* ---------- CORE: MOTOR DE RIESGO (portada, bloque oscuro) ---------- */
 .core{background:var(--ink);color:#fff;overflow:hidden}
-.core::before{content:'';position:absolute;inset:0;background-image:var(--contour-light);background-size:130% auto;background-repeat:no-repeat;background-position:center;pointer-events:none}
+.core::before{content:'';position:absolute;inset:0;background-image:var(--contour-light);background-size:185% auto;background-repeat:no-repeat;background-position:center;pointer-events:none}
 .core .wrap{max-width:1080px;margin:0 auto;position:relative}
 .core .section-label{color:var(--accent)}
 .core h2{font-size:var(--h2-lg);line-height:1.14;max-width:22ch}
@@ -222,14 +222,14 @@ section{padding:120px 5vw;position:relative}
 
 /* ---------- CTA ---------- */
 .cta{background:var(--ink);color:#fff;text-align:center;overflow:hidden}
-.cta::before{content:'';position:absolute;inset:0;background-image:var(--contour-light);background-size:130% auto;background-repeat:no-repeat;background-position:center;pointer-events:none}
+.cta::before{content:'';position:absolute;inset:0;background-image:var(--contour-light);background-size:185% auto;background-repeat:no-repeat;background-position:center;pointer-events:none}
 .cta h2{font-size:var(--h2-lg);max-width:20ch;margin:0 auto 22px;line-height:1.12;position:relative}
 .cta p{max-width:46ch;margin:0 auto 38px;opacity:.92;line-height:1.6;position:relative}
 .cta .reveal{position:relative}
 
 /* ---------- SUB-HERO (páginas interiores) ---------- */
 .sub-hero{padding:100px 5vw 56px 8.5vw;position:relative;overflow:hidden;color:#fff}
-.sub-hero::before{content:'';position:absolute;inset:0;background-image:var(--contour-light);background-size:130% auto;background-repeat:no-repeat;background-position:center;pointer-events:none}
+.sub-hero::before{content:'';position:absolute;inset:0;background-image:var(--contour-light);background-size:185% auto;background-repeat:no-repeat;background-position:center;pointer-events:none}
 .sub-hero.green{background:var(--green)}
 .sub-hero.ink{background:var(--ink)}
 .sub-hero.dark{background:var(--black)}
@@ -308,7 +308,7 @@ section{padding:120px 5vw;position:relative}
 /* ---------- CASO / CITA ---------- */
 .case{padding:0 5vw 110px;background:var(--page-bg)}
 .case-quote{background:var(--ink);color:#fff;border-radius:var(--r-m);padding:56px 50px;position:relative;overflow:hidden}
-.case-quote::before{content:'';position:absolute;inset:0;background-image:var(--contour-light);background-size:130% auto;background-repeat:no-repeat;background-position:center;pointer-events:none}
+.case-quote::before{content:'';position:absolute;inset:0;background-image:var(--contour-light);background-size:185% auto;background-repeat:no-repeat;background-position:center;pointer-events:none}
 .case-quote>*{position:relative}
 .case-quote .cq-tag{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--accent);display:block;margin-bottom:18px}
 .case-quote blockquote{font-family:var(--font-head);font-weight:500;font-size:clamp(1.25rem,2.6vw,1.85rem);line-height:1.35;max-width:34ch;border:none}
@@ -981,15 +981,19 @@ video.post-thumb{background:#000}
 .js :is(.hero,.core,.cta,.sub-hero,.case-quote).contours-in::before{
   animation:
     contourFocusIn 2.1s cubic-bezier(.5,0,.15,1) forwards,
-    contourDrift 54s ease-in-out 2.1s infinite alternate;
+    contourDrift 26s ease-in-out 2.1s infinite;
 }
 @keyframes contourFocusIn{
-  0%  {opacity:0;transform:translate3d(-3.4%,0,0) scale(1.05);filter:blur(8px)}
-  100%{opacity:1;transform:translate3d(0,0,0)     scale(1);   filter:blur(0)}
+  0%  {opacity:0;transform:translate3d(-3.4%,0,0) scale(1.05,1.05) skewX(0deg) skewY(0deg);filter:blur(8px)}
+  100%{opacity:1;transform:translate3d(0,0,0)     scale(1,1)       skewX(0deg) skewY(0deg);filter:blur(0)}
 }
+/* Deriva viva: desplazamiento + escala no uniforme + leve cizalla =
+   las líneas fluyen y cambian ligeramente de forma */
 @keyframes contourDrift{
-  0%  {transform:translate3d(0,0,0) scale(1)}
-  100%{transform:translate3d(2%,-1.2%,0) scale(1.025)}
+  0%,100%{transform:translate3d(0,0,0)        scale(1,1)       skewX(0deg)  skewY(0deg)}
+  25%    {transform:translate3d(3.6%,-2%,0)   scale(1.05,1.02) skewX(.5deg) skewY(-.8deg)}
+  50%    {transform:translate3d(-2.6%,1.7%,0) scale(1.02,1.06) skewX(-.7deg) skewY(.6deg)}
+  75%    {transform:translate3d(4.2%,2.4%,0)  scale(1.06,1.03) skewX(.5deg) skewY(.7deg)}
 }
 @media(prefers-reduced-motion:reduce){
   .js :is(.hero,.core,.cta,.sub-hero,.case-quote)::before{opacity:1;animation:none!important;transform:none;filter:none}
