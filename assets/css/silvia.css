@@ -976,21 +976,28 @@ video.post-thumb{background:#000}
 .article-gallery figcaption{grid-column:1/-1;font-size:.82rem;color:var(--grey);margin-top:4px}
 @media(max-width:600px){.article-gallery{grid-template-columns:1fr 1fr}}
 
-/* ---------- CURVAS DE NIVEL: entrada en ola al aparecer la sección ---------- */
-.js :is(.hero,.core,.cta,.sub-hero,.case-quote)::before{opacity:0;will-change:transform,opacity}
+/* ---------- CURVAS DE NIVEL: entrada suave (desenfoque→foco) + deriva viva ---------- */
+.js :is(.hero,.core,.cta,.sub-hero,.case-quote)::before{opacity:0;will-change:transform,opacity,filter}
 .js :is(.hero,.core,.cta,.sub-hero,.case-quote).contours-in::before{
-  animation:contourWaveIn 1.5s cubic-bezier(.22,.9,.28,1) forwards}
-@keyframes contourWaveIn{
-  0%{opacity:0;transform:translate3d(-9%,14px,0) scaleY(1.07)}
-  55%{opacity:1}
-  100%{opacity:1;transform:translate3d(0,0,0) scaleY(1)}
+  animation:
+    contourFocusIn 2.1s cubic-bezier(.5,0,.15,1) forwards,
+    contourDrift 54s ease-in-out 2.1s infinite alternate;
 }
-[data-theme="dark"] .js .hero.contours-in::before,.js[data-theme="dark"] .hero.contours-in::before{animation-name:contourWaveInHero}
-@keyframes contourWaveInHero{
-  0%{opacity:0;transform:translate3d(-9%,14px,0) scaleY(1.07)}
-  55%{opacity:.9}
-  100%{opacity:.9;transform:translate3d(0,0,0) scaleY(1)}
+@keyframes contourFocusIn{
+  0%  {opacity:0;transform:translate3d(-3.4%,0,0) scale(1.05);filter:blur(8px)}
+  100%{opacity:1;transform:translate3d(0,0,0)     scale(1);   filter:blur(0)}
+}
+@keyframes contourDrift{
+  0%  {transform:translate3d(0,0,0) scale(1)}
+  100%{transform:translate3d(2%,-1.2%,0) scale(1.025)}
 }
 @media(prefers-reduced-motion:reduce){
-  .js :is(.hero,.core,.cta,.sub-hero,.case-quote)::before{opacity:1;animation:none!important;transform:none}
+  .js :is(.hero,.core,.cta,.sub-hero,.case-quote)::before{opacity:1;animation:none!important;transform:none;filter:none}
 }
+/* Nodo activo del timeline de integración: pulso suave (motion graphic) */
+.istep.is-active .istep-num{animation:nodePulse 3.4s ease-in-out infinite}
+@keyframes nodePulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(63,184,131,.42)}
+  50%    {box-shadow:0 0 0 10px rgba(63,184,131,0)}
+}
+@media(prefers-reduced-motion:reduce){.istep.is-active .istep-num{animation:none}}
