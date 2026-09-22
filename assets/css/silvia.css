@@ -906,6 +906,8 @@ footer{border-top:2px solid var(--green)}
 @media(max-width:560px){.cookie-banner{flex-direction:column;text-align:center;gap:12px}}
 
 /* ===== Blog / Noticias ===== */
+.blog-sec{max-width:1120px;margin:0 auto 26px;font-size:var(--h2-md);line-height:1.14}
+.blog-sec-mt{margin-top:74px}
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1120px;margin:0 auto}
 .post-card{display:flex;flex-direction:column;border:1px solid var(--border);border-top:2px solid var(--card-top);border-radius:var(--r-s);overflow:hidden;background:var(--surface);text-decoration:none;transition:transform .3s,box-shadow .3s,border-color .3s}
 .post-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lift);border-top-color:var(--green)}
