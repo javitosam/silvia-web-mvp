@@ -1054,8 +1054,8 @@ video.post-thumb{background:#000}
 /* Retícula sutil oscura (sin grano claro) */
 :root:not([data-theme="dark"]) :is(.sub-hero,.core,.cta,.case-quote)::after{
   background-image:
-    repeating-linear-gradient(90deg,rgba(26,32,44,.035) 0 1px,transparent 1px 140px),
-    repeating-linear-gradient(0deg,rgba(26,32,44,.035) 0 1px,transparent 1px 140px);
+    repeating-linear-gradient(90deg,rgba(14,61,37,.07) 0 1px,transparent 1px 140px),
+    repeating-linear-gradient(0deg,rgba(14,61,37,.07) 0 1px,transparent 1px 140px);
 }
 /* Textos secundarios a tonos oscuros */
 :root:not([data-theme="dark"]) .sub-hero p,
