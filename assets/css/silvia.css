@@ -26,7 +26,6 @@
   --contour-dark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='720' viewBox='0 0 720 720' fill='none'%3E%3Cg stroke='%231a202c' stroke-opacity='.05' stroke-width='1.2'%3E%3Cpath d='M-40 620C120 560 190 420 330 430s210 130 300 96 130-150 170-210'/%3E%3Cpath d='M-40 560C140 510 200 360 340 372s220 118 310 84 120-140 150-196'/%3E%3Cpath d='M-40 500C160 460 210 300 350 314s230 106 320 72 110-130 130-182'/%3E%3Cpath d='M60 720C180 660 260 560 400 560s240 60 320 20'/%3E%3Cpath d='M-40 220C80 190 170 90 300 96s230 84 320 60'/%3E%3Cpath d='M-40 160C90 130 180 30 310 36'/%3E%3C/g%3E%3C/svg%3E");
   --contour-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='720' viewBox='0 0 720 720' fill='none'%3E%3Cg stroke='%23ffffff' stroke-opacity='.07' stroke-width='1.2'%3E%3Cpath d='M-40 620C120 560 190 420 330 430s210 130 300 96 130-150 170-210'/%3E%3Cpath d='M-40 560C140 510 200 360 340 372s220 118 310 84 120-140 150-196'/%3E%3Cpath d='M-40 500C160 460 210 300 350 314s230 106 320 72 110-130 130-182'/%3E%3Cpath d='M60 720C180 660 260 560 400 560s240 60 320 20'/%3E%3Cpath d='M-40 220C80 190 170 90 300 96s230 84 320 60'/%3E%3Cpath d='M-40 160C90 130 180 30 310 36'/%3E%3C/g%3E%3C/svg%3E");
   --contour-green:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='720' viewBox='0 0 720 720' fill='none'%3E%3Cg stroke='%2352c48f' stroke-opacity='.55' stroke-width='1.4'%3E%3Cpath d='M-40 620C120 560 190 420 330 430s210 130 300 96 130-150 170-210'/%3E%3Cpath d='M-40 560C140 510 200 360 340 372s220 118 310 84 120-140 150-196'/%3E%3Cpath d='M-40 500C160 460 210 300 350 314s230 106 320 72 110-130 130-182'/%3E%3Cpath d='M60 720C180 660 260 560 400 560s240 60 320 20'/%3E%3Cpath d='M-40 220C80 190 170 90 300 96s230 84 320 60'/%3E%3Cpath d='M-40 160C90 130 180 30 310 36'/%3E%3C/g%3E%3C/svg%3E");
-  --contour-lm:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='720' viewBox='0 0 720 720' fill='none'%3E%3Cg stroke='%230e3d25' stroke-opacity='.16' stroke-width='1.5'%3E%3Cpath d='M-40 620C120 560 190 420 330 430s210 130 300 96 130-150 170-210'/%3E%3Cpath d='M-40 560C140 510 200 360 340 372s220 118 310 84 120-140 150-196'/%3E%3Cpath d='M-40 500C160 460 210 300 350 314s230 106 320 72 110-130 130-182'/%3E%3Cpath d='M60 720C180 660 260 560 400 560s240 60 320 20'/%3E%3Cpath d='M-40 220C80 190 170 90 300 96s230 84 320 60'/%3E%3Cpath d='M-40 160C90 130 180 30 310 36'/%3E%3C/g%3E%3C/svg%3E");
 }
 /* ---------- TEMA OSCURO ---------- */
 :root[data-theme="dark"]{
@@ -1036,44 +1035,3 @@ video.post-thumb{background:#000}
   50%    {box-shadow:0 0 0 10px rgba(63,184,131,0)}
 }
 @media(prefers-reduced-motion:reduce){.istep.is-active .istep-num{animation:none}}
-
-/* ============================================================
-   MODO CLARO: los bloques verde-oscuro pasan a claro
-   (fondo claro + texto oscuro). En modo oscuro se quedan igual.
-   ============================================================ */
-:root:not([data-theme="dark"]) :is(.sub-hero.ink,.sub-hero.green,.sub-hero.dark,.core,.case-quote){
-  background:radial-gradient(130% 115% at 12% 0%,#eef6f1 0%,#e1eee7 66%);
-  color:var(--text);
-}
-:root:not([data-theme="dark"]) .cta{
-  background:radial-gradient(120% 130% at 50% -12%,#e9f5ee 0%,#dfeee6 60%);
-  color:var(--text);
-}
-/* Curvas de nivel: versión oscura sobre fondo claro */
-:root:not([data-theme="dark"]) :is(.sub-hero,.core,.cta,.case-quote)::before{background-image:var(--contour-lm)}
-/* Retícula sutil oscura (sin grano claro) */
-:root:not([data-theme="dark"]) :is(.sub-hero,.core,.cta,.case-quote)::after{
-  background-image:
-    repeating-linear-gradient(90deg,rgba(14,61,37,.07) 0 1px,transparent 1px 140px),
-    repeating-linear-gradient(0deg,rgba(14,61,37,.07) 0 1px,transparent 1px 140px);
-}
-/* Textos secundarios a tonos oscuros */
-:root:not([data-theme="dark"]) .sub-hero p,
-:root:not([data-theme="dark"]) .sub-hero .eyebrow,
-:root:not([data-theme="dark"]) .sub-back,
-:root:not([data-theme="dark"]) .core .lede,
-:root:not([data-theme="dark"]) .cta p{color:var(--text-soft)}
-:root:not([data-theme="dark"]) .sub-back:hover{color:var(--text)}
-:root:not([data-theme="dark"]) .case-quote .cq-src{color:var(--text-mute)}
-/* Stats: bordes y descripciones oscuros */
-:root:not([data-theme="dark"]) .stat,
-:root:not([data-theme="dark"]) .core-stats .stat{border-left-color:rgba(26,32,44,.18)}
-:root:not([data-theme="dark"]) .stat span{color:var(--text-soft)}
-:root:not([data-theme="dark"]) .core-fig{border-top-color:rgba(26,32,44,.12)}
-/* Botones sobre fondo claro */
-:root:not([data-theme="dark"]) .sub-hero .btn-ghost{color:var(--text);border-color:var(--ctrl-border-hover)}
-:root:not([data-theme="dark"]) .sub-hero .btn-ghost:hover{color:var(--text);border-color:var(--text);background:rgba(26,32,44,.05)}
-:root:not([data-theme="dark"]) .cta .btn-white{background:var(--green);color:#fff}
-:root:not([data-theme="dark"]) .cta .btn-white:hover{box-shadow:0 12px 26px -14px rgba(26,32,44,.4)}
-/* Foco de enlaces sobre fondo claro */
-:root:not([data-theme="dark"]) :is(.cta,.sub-hero,.core,.case-quote) a:focus-visible{outline-color:var(--green)}
