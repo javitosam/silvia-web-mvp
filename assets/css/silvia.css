@@ -26,6 +26,7 @@
   --contour-dark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='720' viewBox='0 0 720 720' fill='none'%3E%3Cg stroke='%231a202c' stroke-opacity='.05' stroke-width='1.2'%3E%3Cpath d='M-40 620C120 560 190 420 330 430s210 130 300 96 130-150 170-210'/%3E%3Cpath d='M-40 560C140 510 200 360 340 372s220 118 310 84 120-140 150-196'/%3E%3Cpath d='M-40 500C160 460 210 300 350 314s230 106 320 72 110-130 130-182'/%3E%3Cpath d='M60 720C180 660 260 560 400 560s240 60 320 20'/%3E%3Cpath d='M-40 220C80 190 170 90 300 96s230 84 320 60'/%3E%3Cpath d='M-40 160C90 130 180 30 310 36'/%3E%3C/g%3E%3C/svg%3E");
   --contour-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='720' viewBox='0 0 720 720' fill='none'%3E%3Cg stroke='%23ffffff' stroke-opacity='.07' stroke-width='1.2'%3E%3Cpath d='M-40 620C120 560 190 420 330 430s210 130 300 96 130-150 170-210'/%3E%3Cpath d='M-40 560C140 510 200 360 340 372s220 118 310 84 120-140 150-196'/%3E%3Cpath d='M-40 500C160 460 210 300 350 314s230 106 320 72 110-130 130-182'/%3E%3Cpath d='M60 720C180 660 260 560 400 560s240 60 320 20'/%3E%3Cpath d='M-40 220C80 190 170 90 300 96s230 84 320 60'/%3E%3Cpath d='M-40 160C90 130 180 30 310 36'/%3E%3C/g%3E%3C/svg%3E");
   --contour-green:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='720' viewBox='0 0 720 720' fill='none'%3E%3Cg stroke='%2352c48f' stroke-opacity='.55' stroke-width='1.4'%3E%3Cpath d='M-40 620C120 560 190 420 330 430s210 130 300 96 130-150 170-210'/%3E%3Cpath d='M-40 560C140 510 200 360 340 372s220 118 310 84 120-140 150-196'/%3E%3Cpath d='M-40 500C160 460 210 300 350 314s230 106 320 72 110-130 130-182'/%3E%3Cpath d='M60 720C180 660 260 560 400 560s240 60 320 20'/%3E%3Cpath d='M-40 220C80 190 170 90 300 96s230 84 320 60'/%3E%3Cpath d='M-40 160C90 130 180 30 310 36'/%3E%3C/g%3E%3C/svg%3E");
+  --contour-lm:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='720' viewBox='0 0 720 720' fill='none'%3E%3Cg stroke='%230e3d25' stroke-opacity='.16' stroke-width='1.5'%3E%3Cpath d='M-40 620C120 560 190 420 330 430s210 130 300 96 130-150 170-210'/%3E%3Cpath d='M-40 560C140 510 200 360 340 372s220 118 310 84 120-140 150-196'/%3E%3Cpath d='M-40 500C160 460 210 300 350 314s230 106 320 72 110-130 130-182'/%3E%3Cpath d='M60 720C180 660 260 560 400 560s240 60 320 20'/%3E%3Cpath d='M-40 220C80 190 170 90 300 96s230 84 320 60'/%3E%3Cpath d='M-40 160C90 130 180 30 310 36'/%3E%3C/g%3E%3C/svg%3E");
 }
 /* ---------- TEMA OSCURO ---------- */
 :root[data-theme="dark"]{
@@ -1049,7 +1050,7 @@ video.post-thumb{background:#000}
   color:var(--text);
 }
 /* Curvas de nivel: versión oscura sobre fondo claro */
-:root:not([data-theme="dark"]) :is(.sub-hero,.core,.cta,.case-quote)::before{background-image:var(--contour-dark)}
+:root:not([data-theme="dark"]) :is(.sub-hero,.core,.cta,.case-quote)::before{background-image:var(--contour-lm)}
 /* Retícula sutil oscura (sin grano claro) */
 :root:not([data-theme="dark"]) :is(.sub-hero,.core,.cta,.case-quote)::after{
   background-image:
