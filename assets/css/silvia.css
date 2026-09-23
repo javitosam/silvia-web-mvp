@@ -1035,3 +1035,44 @@ video.post-thumb{background:#000}
   50%    {box-shadow:0 0 0 10px rgba(63,184,131,0)}
 }
 @media(prefers-reduced-motion:reduce){.istep.is-active .istep-num{animation:none}}
+
+/* ============================================================
+   MODO CLARO: los bloques verde-oscuro pasan a claro
+   (fondo claro + texto oscuro). En modo oscuro se quedan igual.
+   ============================================================ */
+:root:not([data-theme="dark"]) :is(.sub-hero.ink,.sub-hero.green,.sub-hero.dark,.core,.case-quote){
+  background:radial-gradient(130% 115% at 12% 0%,#eef6f1 0%,#e1eee7 66%);
+  color:var(--text);
+}
+:root:not([data-theme="dark"]) .cta{
+  background:radial-gradient(120% 130% at 50% -12%,#e9f5ee 0%,#dfeee6 60%);
+  color:var(--text);
+}
+/* Curvas de nivel: versión oscura sobre fondo claro */
+:root:not([data-theme="dark"]) :is(.sub-hero,.core,.cta,.case-quote)::before{background-image:var(--contour-dark)}
+/* Retícula sutil oscura (sin grano claro) */
+:root:not([data-theme="dark"]) :is(.sub-hero,.core,.cta,.case-quote)::after{
+  background-image:
+    repeating-linear-gradient(90deg,rgba(26,32,44,.035) 0 1px,transparent 1px 140px),
+    repeating-linear-gradient(0deg,rgba(26,32,44,.035) 0 1px,transparent 1px 140px);
+}
+/* Textos secundarios a tonos oscuros */
+:root:not([data-theme="dark"]) .sub-hero p,
+:root:not([data-theme="dark"]) .sub-hero .eyebrow,
+:root:not([data-theme="dark"]) .sub-back,
+:root:not([data-theme="dark"]) .core .lede,
+:root:not([data-theme="dark"]) .cta p{color:var(--text-soft)}
+:root:not([data-theme="dark"]) .sub-back:hover{color:var(--text)}
+:root:not([data-theme="dark"]) .case-quote .cq-src{color:var(--text-mute)}
+/* Stats: bordes y descripciones oscuros */
+:root:not([data-theme="dark"]) .stat,
+:root:not([data-theme="dark"]) .core-stats .stat{border-left-color:rgba(26,32,44,.18)}
+:root:not([data-theme="dark"]) .stat span{color:var(--text-soft)}
+:root:not([data-theme="dark"]) .core-fig{border-top-color:rgba(26,32,44,.12)}
+/* Botones sobre fondo claro */
+:root:not([data-theme="dark"]) .sub-hero .btn-ghost{color:var(--text);border-color:var(--ctrl-border-hover)}
+:root:not([data-theme="dark"]) .sub-hero .btn-ghost:hover{color:var(--text);border-color:var(--text);background:rgba(26,32,44,.05)}
+:root:not([data-theme="dark"]) .cta .btn-white{background:var(--green);color:#fff}
+:root:not([data-theme="dark"]) .cta .btn-white:hover{box-shadow:0 12px 26px -14px rgba(26,32,44,.4)}
+/* Foco de enlaces sobre fondo claro */
+:root:not([data-theme="dark"]) :is(.cta,.sub-hero,.core,.case-quote) a:focus-visible{outline-color:var(--green)}
