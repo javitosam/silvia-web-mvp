@@ -245,7 +245,7 @@ section{padding:120px 5vw;position:relative}
 /* franja de cifras: lectura de instrumento */
 .stats{display:flex;flex-wrap:wrap;gap:30px 46px;margin-top:48px}
 .stat{border-left:1px solid rgba(255,255,255,.3);padding:4px 0 4px 18px;min-width:150px;max-width:240px}
-.stat b{display:block;font-family:var(--font-mono);font-size:clamp(1.2rem,4vw,1.6rem);line-height:1.1;font-weight:600;letter-spacing:-.02em}
+.stat b{display:block;font-family:var(--font-head);font-size:clamp(1.15rem,3.6vw,1.5rem);line-height:1.12;font-weight:600;letter-spacing:-.01em}
 .stat span{display:block;margin-top:8px;font-size:.8rem;color:rgba(255,255,255,.75);line-height:1.4}
 
 /* ---------- FEATURES ---------- */
