@@ -263,6 +263,7 @@ section{padding:120px 5vw;position:relative}
 .backers .feat-card::before{content:none}
 .backer-logo{align-self:flex-start;width:auto;height:34px;background:#fff;padding:14px 20px;border-radius:12px;box-sizing:content-box;margin-bottom:22px}
 .backer-logo.uc-logo{height:74px;background:none;padding:0;border-radius:0;box-shadow:none}
+.backer-logo.esa-logo{height:92px;background:none;padding:0;border-radius:0;box-shadow:none}
 
 /* ---------- PASOS NUMERADOS ---------- */
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px;counter-reset:paso;margin-top:56px}
@@ -666,8 +667,14 @@ footer{border-top:2px solid var(--green)}
 .trust-badge{display:flex;flex-direction:column;align-items:center;gap:12px;opacity:.9;transition:opacity .25s,transform .25s}
 .trust-badge:hover{opacity:1;transform:translateY(-2px)}
 .trust-badge img{width:auto;display:block;background:#fff;padding:14px 22px;border-radius:12px;box-sizing:content-box;box-shadow:0 6px 20px -10px rgba(0,0,0,.28)}
-.trust-badge .esa-logo{height:40px}
+/* Logo ESA BIC Madrid Region: lockup completo, transparente y adaptado al modo
+   (color de marca en claro, versión clara en oscuro). Sin pastilla blanca. */
+.trust-badge .esa-logo{height:74px;width:auto;background:none;padding:0;border-radius:0;box-shadow:none}
 .trust-badge .uc-logo{height:62px;background:none;padding:0;border-radius:0;box-shadow:none}
+.esa-logo.esa-dark{display:none}
+[data-theme="dark"] .esa-logo.esa-light{display:none}
+[data-theme="dark"] .esa-logo.esa-dark{display:block}
+@media(max-width:560px){.trust-badge .esa-logo{height:58px}.backer-logo.esa-logo{height:74px}}
 .trust-badge .trust-cap{font-size:.76rem;color:var(--steel);letter-spacing:.01em;text-align:center}
 /* Logo UC3M: azul de marca en claro, blanco en oscuro (sin pastilla) */
 [data-theme="dark"] .uc-logo{filter:brightness(0) invert(1)}
@@ -852,11 +859,6 @@ footer{border-top:2px solid var(--green)}
 /* Enlace LinkedIn en las fichas del equipo */
 .member-li{display:inline-block;margin-top:8px;font-size:.82rem;font-weight:600;color:var(--green);text-decoration:none;letter-spacing:.02em}
 .member-li:hover{text-decoration:underline}
-
-/* TEMPORAL — ocultar la ESA (se mantiene UC3M). Para restaurarla, borra estas reglas. */
-.trust-badge:has(.esa-logo){display:none}
-.backers .feat-card:has(.esa-logo){display:none}
-.backers{grid-template-columns:minmax(0,560px);justify-content:center}
 
 /* ---- Páginas legales (privacidad / cookies) ---- */
 .legal{padding:64px 5vw 96px}
