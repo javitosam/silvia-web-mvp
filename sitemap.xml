@@ -537,6 +537,30 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://silviaearth.com/noticias/silvia-incorporacion-esa-bic-madrid-region</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://silviaearth.com/en/news/silvia-incorporacion-esa-bic-madrid-region</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://silviaearth.com/fr/actualites/silvia-incorporacion-esa-bic-madrid-region</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://silviaearth.com/pt/noticias/silvia-incorporacion-esa-bic-madrid-region</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://silviaearth.com/noticias/silvia-earth-sembrai-2026</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
