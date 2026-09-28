@@ -262,8 +262,10 @@ section{padding:120px 5vw;position:relative}
 .feat.tint .feat-card{background:var(--surface)}
 .backers .feat-card::before{content:none}
 .backer-logo{align-self:flex-start;width:auto;height:34px;background:#fff;padding:14px 20px;border-radius:12px;box-sizing:content-box;margin-bottom:22px}
-.backer-logo.uc-logo{height:74px;background:none;padding:0;border-radius:0;box-shadow:none}
-.backer-logo.esa-logo{height:92px;background:none;padding:0;border-radius:0;box-shadow:none}
+/* Logos de respaldo: escalan por ancho sin deformarse en tarjetas estrechas
+   (height:auto + max-height/max-width en vez de altura fija). */
+.backer-logo.uc-logo{height:auto;width:auto;max-height:74px;max-width:100%;background:none;padding:0;border-radius:0;box-shadow:none}
+.backer-logo.esa-logo{height:auto;width:auto;max-height:92px;max-width:100%;background:none;padding:0;border-radius:0;box-shadow:none}
 
 /* ---------- PASOS NUMERADOS ---------- */
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px;counter-reset:paso;margin-top:56px}
@@ -590,8 +592,18 @@ footer{border-top:2px solid var(--green)}
 .feat-card:last-child:nth-child(odd){grid-column:1/-1;display:flex;flex-direction:row;align-items:baseline;gap:18px 44px;flex-wrap:wrap}
 .feat-card:last-child:nth-child(odd) h3{flex:0 0 250px;margin-bottom:0}
 .feat-card:last-child:nth-child(odd) p{flex:1;min-width:280px;max-width:none}
+/* Respaldo institucional: rejilla uniforme de 3 (ESA, UC3M, NVIDIA Inception),
+   sin la banda horizontal que aplica al último impar en otras secciones. */
+.backers{grid-template-columns:repeat(3,1fr)}
+.backers .feat-card:last-child:nth-child(odd){grid-column:auto;display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.backers .feat-card:last-child:nth-child(odd) h3{flex:none;margin-bottom:10px}
+.backers .feat-card:last-child:nth-child(odd) p{flex:none;min-width:0;max-width:56ch}
 @media(max-width:1080px){
   .feat-grid{grid-template-columns:1fr 1fr}
+  .backers{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:760px){
+  .backers{grid-template-columns:1fr}
 }
 @media(max-width:640px){
   .feat-grid{grid-template-columns:1fr}
@@ -676,6 +688,14 @@ footer{border-top:2px solid var(--green)}
 [data-theme="dark"] .esa-logo.esa-dark{display:block}
 @media(max-width:560px){.trust-badge .esa-logo{height:58px}.backer-logo.esa-logo{height:74px}}
 .trust-badge .trust-cap{font-size:.76rem;color:var(--steel);letter-spacing:.01em;text-align:center}
+/* NVIDIA Inception Program: badge oficial en color, sin pastilla añadida.
+   El propio artwork lleva su caja blanca (blanco = color oficial), que es la
+   versión "for dark backgrounds"; en claro se funde con el fondo. No se
+   alteran sus colores (invertir a blanco no está permitido por la marca). */
+.trust-badge .nv-badge{height:auto;max-height:46px;max-width:100%;width:auto;background:none;padding:0;border-radius:0;box-shadow:none}
+.backer-logo.nv-badge{height:auto;max-height:54px;max-width:100%;width:auto;background:none;padding:0;border-radius:0;box-shadow:none}
+.nv-legal{font-size:.62rem;line-height:1.5;color:var(--steel);opacity:.85;margin-top:12px;max-width:52ch}
+.trust-badge .nv-legal{font-size:.58rem;text-align:center;max-width:30ch;margin-top:2px}
 /* Logo UC3M: azul de marca en claro, blanco en oscuro (sin pastilla) */
 [data-theme="dark"] .uc-logo{filter:brightness(0) invert(1)}
 
